@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  surname: MyString
+  birth: 2012-10-14
+  place: MyString
+  valid_from: 2012-10-14
+  valid_to: 2012-10-14
+  national_id: MyString
+  adress: MyString
+
+two:
+  name: MyString
+  surname: MyString
+  birth: 2012-10-14
+  place: MyString
+  valid_from: 2012-10-14
+  valid_to: 2012-10-14
+  national_id: MyString
+  adress: MyString

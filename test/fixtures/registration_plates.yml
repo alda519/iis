@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  reg: MyString
+  valid_from: 2012-10-14
+  valid_to: 2012-10-14
+
+two:
+  reg: MyString
+  valid_from: 2012-10-14
+  valid_to: 2012-10-14

@@ -1,0 +1,48 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+
+html {
+    background-color: #ffffff;
+}
+
+body {
+    margin: auto;
+    width: 700px;
+    background-color: #fff;
+    background-image: url("/car.png");
+    background-position: top right;
+    background-repeat: no-repeat;
+}
+
+h1 {
+    -webkit-transform: rotate(6.7deg);
+    -moz-transform: rotate(6.7deg);
+    -o-transform: rotate(6.7deg);
+    position: relative;
+    top: 65px;
+    left: 40px;
+    margin-bottom: 100px;
+    font-size: 230%;
+}
+
+.thead {
+    background-color: #dddddd;
+}
+
+.even {
+    background-color: #ffffff;
+}
+.odd {
+    background-color: #eeeeee;
+}

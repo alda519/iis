@@ -1,0 +1,12 @@
+%h2 Drivers
+
+%table{:width => "100%"}
+    - @drivers.each do |d|
+        %tr
+            %td= d.name
+            %td= d.surname
+            %td= d.birth
+            %td= link_to "Detail", d
+            %td= link_to "Edit", edit_driver_path(d)
+
+%p= link_to "New Driver", new_driver_path

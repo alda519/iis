@@ -1,0 +1,31 @@
+%h2 Edit Vehicle
+
+= form_for @vehicle do |f|
+    %table
+        %tr
+            %td
+                = f.label :year
+            %td
+                = f.text_field :year
+        %tr
+            %td
+                = f.label :brand
+            %td
+                = f.text_field :brand
+        %tr
+            %td
+                = f.label :model
+            %td
+                = f.text_field :model
+        %tr
+            %td
+                = f.label :color
+            %td
+                = f.text_field :color
+        %tr
+            %td{:colspan => 2}
+                = f.submit
+
+%p=link_to 'Destroy', vehicle_path, :confirm => 'Are you sure you want to destroy this vehicle?', :method => :delete
+
+%p= link_to "Back to Vehicles", vehicles_path

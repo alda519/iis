@@ -1,0 +1,2 @@
+module RegistrationPlatesHelper
+end

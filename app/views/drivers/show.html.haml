@@ -1,0 +1,46 @@
+%h2 Drivers#show
+
+= form_for @driver do |f|
+    %table
+        %tr
+            %td
+                = f.label :name
+            %td
+                = f.text_field :name, :readonly => true
+        %tr
+            %td
+                = f.label :surname
+            %td
+                = f.text_field :surname, :readonly => true
+        %tr
+            %td
+                = f.label :birth
+            %td
+                = f.text_field :birth, :readonly => true
+        %tr
+            %td
+                = f.label :place
+            %td
+                = f.text_field :place, :readonly => true
+        %tr
+            %td
+                = f.label :valid_from
+            %td
+                = f.text_field :valid_from, :readonly => true
+        %tr
+            %td
+                = f.label :valid_to
+            %td
+                = f.text_field :valid_to, :readonly => true
+        %tr
+            %td
+                = f.label :national_id, "National ID"
+            %td
+                = f.text_field :national_id, :readonly => true
+        %tr
+            %td
+                = f.label :address
+            %td
+                = f.text_field :address, :readonly => true
+
+%p= link_to "Back to Driver List", drivers_path
