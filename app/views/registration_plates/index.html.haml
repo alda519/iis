@@ -1,1 +1,18 @@
-%h2 RegistrationPlates#index
+%h2 Registration Plates
+
+%table{:width => "100%"}
+    %tr.thead
+        %th{:width => "20%"} Reg no.
+        %th{:width => "30%"} Valid from
+        %th{:width => "30%"} Valid to
+        %th{:width => "10%"} Show
+        %th{:width => "10%"} Edit
+    -@plates.each_with_index do |p, i|
+        %tr{:class => "#{i%2==0?"even":"odd"}"}
+            %td= p.reg
+            %td= p.valid_from
+            %td= p.valid_to
+            %td= link_to "Detail", p
+            %td= link_to "Edit", edit_registration_plate_path(p)
+
+%p= link_to "New Registration Plate", new_registration_plate_path
