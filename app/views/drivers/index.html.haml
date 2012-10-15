@@ -1,8 +1,14 @@
 %h2 Drivers
 
 %table{:width => "100%"}
-    - @drivers.each do |d|
-        %tr
+    %tr.thead 
+        %th{:width => "30%"} Name
+        %th{:width => "30%"} Surname
+        %th{:width => "20%"} Birth
+        %th{:width => "10%"} Show
+        %th{:width => "10%"} Edit
+    - @drivers.each_with_index do |d, i|
+        %tr{ :class => "#{i%2==0? 'even':'odd'}" }
             %td= d.name
             %td= d.surname
             %td= d.birth
