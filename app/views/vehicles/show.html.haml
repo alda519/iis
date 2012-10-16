@@ -1,27 +1,19 @@
 %h2 Vehicle Details
 
-%p
-    = form_for @vehicle do |f|
-        %table
-            %tr
-                %td
-                    = f.label :year
-                %td
-                    = f.text_field :year, :readonly => :yes
-            %tr
-                %td
-                    = f.label :brand
-                %td
-                    = f.text_field :brand, :readonly => :yes
-            %tr
-                %td
-                    = f.label :model
-                %td
-                    = f.text_field :model, :readonly => :yes
-            %tr
-                %td
-                    = f.label :color
-                %td
-                    = f.text_field :color, :readonly => :yes
+
+= form_for @vehicle do |f|
+    %table
+        %tr
+            %td= f.label :year
+            %td= f.text_field :year, :readonly => :yes
+        %tr
+            %td= f.label :brand
+            %td= f.text_field :brand, :readonly => :yes
+        %tr
+            %td= f.label :model
+            %td= f.text_field :model, :readonly => :yes
+        %tr
+            %td= f.label :color
+            %td= f.text_field :color, :readonly => :yes
 
 %p= link_to "Back to Vehicles", vehicles_path

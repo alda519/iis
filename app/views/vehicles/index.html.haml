@@ -9,15 +9,10 @@
         %th{:width => "10%"} Edit
     - @vehicles.each_with_index do |v, i|
         %tr{ :class => "#{i%2==0? 'even':'odd'}" }
-            %td
-                = v.year
-            %td
-                = v.brand
-            %td
-                = v.model
-            %td
-                = link_to "Detail", v
-            %td
-                = link_to "Edit", edit_vehicle_path(v)
+            %td= v.year
+            %td= v.brand
+            %td= v.model
+            %td= link_to "Detail", v
+            %td= link_to "Edit", edit_vehicle_path(v)
 
 %p= link_to "New Vehicle", new_vehicle_path
