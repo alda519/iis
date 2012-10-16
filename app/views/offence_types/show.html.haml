@@ -1,0 +1,17 @@
+#notice= notice
+
+%p
+    %b Points:
+    = @offence_type.points
+%p
+    %b Fine from:
+    = @offence_type.fine_from
+%p
+    %b Fine to:
+    = @offence_type.fine_to
+%p
+    %b Descr:
+    = @offence_type.descr
+
+%p= link_to 'Edit', edit_offence_type_path(@offence_type)
+%p= link_to 'Back', offence_types_path

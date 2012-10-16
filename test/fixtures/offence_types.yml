@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  points: 1
+  fine_from: 1
+  fine_to: 1
+  descr: MyString
+
+two:
+  points: 1
+  fine_from: 1
+  fine_to: 1
+  descr: MyString

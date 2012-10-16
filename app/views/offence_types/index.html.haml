@@ -1,0 +1,20 @@
+%h2 Listing offence_types
+
+%table
+    %tr.thead
+        %th Points
+        %th Fine from
+        %th Fine to
+        %th Descr
+        %th
+        %th
+    - @offence_types.each do |offence_type|
+        %tr
+            %td= offence_type.points
+            %td= offence_type.fine_from
+            %td= offence_type.fine_to
+            %td= offence_type.descr
+            %td= link_to 'Show', offence_type
+            %td= link_to 'Edit', edit_offence_type_path(offence_type)
+
+%p= link_to 'New Offence type', new_offence_type_path
