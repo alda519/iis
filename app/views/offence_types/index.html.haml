@@ -1,13 +1,13 @@
 %h2 Listing offence_types
 
-%table
+%table{:width => "100%"}
     %tr.thead
-        %th Points
-        %th Fine from
-        %th Fine to
-        %th Descr
-        %th
-        %th
+        %th{:width => "10%"} Points
+        %th{:width => "15%"} Fine from
+        %th{:width => "15%"} Fine to
+        %th{:width => "40%"} Descr
+        %th{:width => "10%"}
+        %th{:width => "10%"}
     - @offence_types.each do |offence_type|
         %tr
             %td= offence_type.points
