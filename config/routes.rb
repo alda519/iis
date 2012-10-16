@@ -1,4 +1,6 @@
 Iis::Application.routes.draw do
+  resources :offence_types
+
   get "index/index"
 
   get "drivers/index"
