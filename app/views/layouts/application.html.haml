@@ -8,4 +8,14 @@
         = csrf_meta_tags
     %body
         %h1= link_to "Vehicle Database", :root
+        - if controller_name != "index"
+            = link_to "Database", :root
+            = ">"
+            - if action_name == "index"
+                = controller.to_s
+            - else
+                = link_to controller.to_s, :action => :index
+                = ">"
+                = controller.action_name.capitalize
+            %br
         = yield
