@@ -36,6 +36,13 @@ h1 {
     font-size: 230%;
 }
 
+.navigation {
+    background-color: #eeeeee;
+    border-radius: 10px;
+    padding: 8px;
+    margin: 110px 10px 10px 10px;
+}
+
 .thead {
     background-color: #dddddd;
 }
