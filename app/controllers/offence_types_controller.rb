@@ -1,4 +1,7 @@
 class OffenceTypesController < ApplicationController
+
+    before_filter :authenticate_user
+
     # GET /offence_types
     # GET /offence_types.json
     def index

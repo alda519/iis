@@ -8,8 +8,18 @@
         = csrf_meta_tags
     %body
         %h1= link_to "Vehicle Database", :root
-        - if controller_name != "index"
-            .navigation
+        .navigation
+            - if @current_user
+                Logged in as
+                %b= @current_user.name
+                =" | "  
+                =link_to "Log out", log_out_path
+                =" | "
+                =link_to "Administration", users_path
+            - else
+                =link_to "Log in", log_in_path
+            - if not ["index", "sessions", "users"].include? controller_name
+                %br
                 = link_to "Database", :root
                 = ">"
                 - if action_name == "index"
@@ -18,5 +28,10 @@
                     = link_to controller.to_s, :action => :index
                     = ">"
                     = controller.action_name.capitalize
-                %br
+        - if notice
+            .notice= notice
+        - if alert
+            .alert= alert
+        - if flash[:error]
+            .notice= flash[:error]
         = yield

@@ -1,5 +1,7 @@
 class VehiclesController < ApplicationController
 
+    before_filter :authenticate_user
+
     def index
         @vehicles = Vehicle.all(:order => :year)
     end

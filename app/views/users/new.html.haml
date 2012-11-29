@@ -1,0 +1,30 @@
+%h2 New User
+
+- if @user.errors.any?
+    - for message in @user.errors.full_messages
+        = message
+
+= form_for @user do |f|
+    %b Name
+    %br
+    = f.text_field :name
+    %br
+    %b Login
+    %br
+    = f.text_field :login
+    %br
+    %b Password
+    %br
+    = f.password_field :password
+    %br
+    %b Password Confirmation
+    %br
+    = f.password_field :password_confirmation
+    %br
+    %b Roles
+    %ul
+        -Role.all.each do |role|
+            %li
+                =check_box_tag "user[role_ids][]", role.id, @user.roles.include?(role)
+                =role.name
+    = f.submit "Create user"

@@ -1,23 +1,23 @@
 Iis::Application.routes.draw do
+
+
+  resources :users#, :only => [:new, :create]#, :index]
+  get "log_out" => "sessions#destroy"
+  get "log_in" => "sessions#new"
+  get "sign_up" => "users#new"
+
+  resources :sessions, :only => [:new, :create, :destroy]
+
   resources :offence_types
 
   get "index/index"
+  get "index/bakule"
 
-  get "drivers/index"
+  root :to => 'index#index'
 
-  get "drivers/show"
-
-  get "drivers/edit"
-
-  get "drivers/new"
-
-  get "registration_plates/index"
-
-  get "registration_plates/show"
-
-  get "registration_plates/new"
-
-  get "registration_plates/edit"
+  resources :vehicles
+  resources :registration_plates
+  resources :drivers
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -76,9 +76,4 @@ Iis::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
   
-  root :to => 'index#index'
-
-  resources :vehicles
-  resources :registration_plates
-  resources :drivers
 end

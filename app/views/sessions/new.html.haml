@@ -1,0 +1,12 @@
+%h2 Log in
+
+=form_tag sessions_path do
+    %b Login
+    %br
+    = text_field_tag :login, params[:login]
+    %br
+    %b Password
+    %br
+    = password_field_tag :password
+    %br
+    = submit_tag "Log in"

@@ -1,0 +1,17 @@
+%h2 User detail
+
+= form_for @user do
+    %b Name
+    %br
+    =text_field_tag "user[name]", @user.name, :disabled=>!@current_user.admin?
+    %br
+    %b Login
+    %br
+    =text_field_tag "user[login]", @user.login, :disabled=>!@current_user.admin?
+    %br 
+    %ul
+        -Role.all.each do |role|
+            %li
+                =check_box_tag "user[role_ids][]", role.id, @user.roles.include?(role), :disabled=>!@current_user.admin?
+                =role.name
+    =submit_tag "Update"

@@ -1,5 +1,7 @@
 class DriversController < ApplicationController
 
+    before_filter :authenticate_user
+
     def index
         @drivers = Driver.all
     end

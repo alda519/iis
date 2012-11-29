@@ -1,4 +1,11 @@
 class IndexController < ApplicationController
-  def index
-  end
+
+    before_filter :authenticate_user, :only => :index
+
+    def index
+    end
+
+    def bakule
+    end
+
 end

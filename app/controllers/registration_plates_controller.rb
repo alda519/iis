@@ -1,5 +1,7 @@
 class RegistrationPlatesController < ApplicationController
 
+    before_filter :authenticate_user
+
     def index
         @plates = RegistrationPlate.all
     end
