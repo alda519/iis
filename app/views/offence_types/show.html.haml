@@ -1,15 +1,18 @@
-%p
-    %b Points:
-    = @offence_type.points
-%p
-    %b Fine from:
-    = @offence_type.fine_from
-%p
-    %b Fine to:
-    = @offence_type.fine_to
-%p
-    %b Descr:
-    = @offence_type.descr
+%h2 Offence type detail
+
+%table{:width => '100%'}
+    %tr
+        %td Points
+        %td= @offence_type.points
+    %tr
+        %td Fine from
+        %td= @offence_type.fine_from
+    %tr
+        %td Fine to
+        %td= @offence_type.fine_to
+    %tr
+        %td Description
+        %td= @offence_type.descr
 
 %p= link_to 'Edit', edit_offence_type_path(@offence_type)
 %p= link_to 'Back', offence_types_path

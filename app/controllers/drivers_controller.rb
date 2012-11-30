@@ -19,8 +19,12 @@ class DriversController < ApplicationController
     end
 
     def create
-        Driver.new(params[:driver]).save
-        redirect_to :action => :index
+        @driver = Driver.new params[:driver]
+        if @driver.save
+            redirect_to :action => :index, :notice => "Driver created."
+        else
+            render :action => "new"
+        end
     end
 
     def update

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121129070636) do
+ActiveRecord::Schema.define(:version => 20121130101606) do
 
   create_table "drivers", :force => true do |t|
     t.string   "name"
@@ -41,6 +41,8 @@ ActiveRecord::Schema.define(:version => 20121129070636) do
     t.date     "valid_to"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "driver_id"
+    t.integer  "vehicle_id"
   end
 
   create_table "roles", :force => true do |t|

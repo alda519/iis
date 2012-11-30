@@ -1,0 +1,32 @@
+- if @driver.errors.any?
+    - for message in @driver.errors.full_messages
+        .form_error= message
+    %br
+
+= form_for @driver do |f|
+    .field
+        %div= f.label :name
+        %div= f.text_field :name
+    .field
+        %div= f.label :surname
+        %div= f.text_field :surname
+    .field
+        %div= f.label :birth
+        %div= f.text_field :birth
+    .field
+        %div= f.label :place
+        %div= f.text_field :place
+    .field
+        %div= f.label :valid_from
+        %div= f.text_field :valid_from
+    .field
+        %div= f.label :valid_to
+        %div= f.text_field :valid_to
+    .field
+        %div= f.label :national_id, "National ID"
+        %div= f.text_field :national_id
+    .field
+        %div= f.label :address
+        %div= f.text_field :address
+    .field
+        %div= f.submit

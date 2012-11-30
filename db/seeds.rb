@@ -5,3 +5,29 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+=begin
+# Role
+r1 = Role.create :name => "Admin"
+r2 = Role.create :name =>"Judge"
+r3 = Role.create :name =>"Clerk"
+r4 = Role.create :name =>"Policeman"
+
+# Uzivatele
+a = User.create(:login => 'admin', :name => 'Dapper Drake')
+b = User.create(:login => 'policeman', :name => 'Breezy Badger')
+c = User.create(:login => 'judge', :name => 'Hoary Hedgehog')
+d = User.create(:login => 'clerk', :name => 'Warty Warthog')
+
+# Role uzivatelu
+a.roles = [r1]
+b.roles = [r4]
+c.roles = [r2]
+d.roles = [r3]
+
+# Ridici
+# Auta
+# Prestupky
+# Atd. TBD
+
+=end

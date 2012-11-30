@@ -1,0 +1,21 @@
+- if @vehicle.errors.any?
+    - for message in @vehicle.errors.full_messages
+        .form_error= message
+    %br
+
+= form_for @vehicle do |f|
+    %table
+        .field
+            %div= f.label :year
+            %div= f.text_field :year
+        .field
+            %div= f.label :brand
+            %div= f.text_field :brand
+        .field
+            %div= f.label :model
+            %div= f.text_field :model
+        .field
+            %div= f.label :color
+            %div= f.text_field :color
+        .field
+            %div= f.submit

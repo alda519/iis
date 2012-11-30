@@ -5,11 +5,11 @@
         %th{:width => "10%"} Points
         %th{:width => "15%"} Fine from
         %th{:width => "15%"} Fine to
-        %th{:width => "40%"} Descr
+        %th{:width => "40%"} Description
         %th{:width => "10%"}
         %th{:width => "10%"}
-    - @offence_types.each do |offence_type|
-        %tr
+    - @offence_types.each_with_index do |offence_type, i|
+        %tr{:class => "#{i%2==0? 'even':'odd'}"}
             %td= offence_type.points
             %td= offence_type.fine_from
             %td= offence_type.fine_to

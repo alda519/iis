@@ -12,15 +12,25 @@ class RegistrationPlatesController < ApplicationController
 
     def edit
         @plate = RegistrationPlate.find(params[:id])
+        @drivers = Driver.all
+        @vehicles = Vehicle.all
     end
 
     def new
         @plate = RegistrationPlate.new
+        @drivers = Driver.all
+        @vehicles = Vehicle.all
     end
 
     def create
-        RegistrationPlate.new(params[:registration_plate]).save
-        redirect_to :action => :index
+        @plate = RegistrationPlate.new(params[:registration_plate])
+        @drivers = Driver.all
+        @vehicles = Vehicle.all
+        if @plate.save
+            redirect_to :action => :index
+        else
+            render :action => :new
+        end
     end
 
     def update
@@ -34,6 +44,7 @@ class RegistrationPlatesController < ApplicationController
 
     def destroy
         RegistrationPlate.find(params[:id]).delete
+        redirect_to :action => :index
     end
 
 end

@@ -1,30 +1,31 @@
 %h2 Driver Details
 
-= form_for @driver do |f|
-    %table
-        %tr
-            %td= f.label :name
-            %td= f.text_field :name, :readonly => true
-        %tr
-            %td= f.label :surname
-            %td= f.text_field :surname, :readonly => true
-        %tr
-            %td= f.label :birth
-            %td= f.text_field :birth, :readonly => true
-        %tr
-            %td= f.label :place
-            %td= f.text_field :place, :readonly => true
-        %tr
-            %td= f.label :valid_from
-            %td= f.text_field :valid_from, :readonly => true
-        %tr
-            %td= f.label :valid_to
-            %td= f.text_field :valid_to, :readonly => true
-        %tr
-            %td= f.label :national_id, "National ID"
-            %td= f.text_field :national_id, :readonly => true
-        %tr
-            %td= f.label :address
-            %td= f.text_field :address, :readonly => true
+%table{:width => 500}
+    %tr
+        %td Name
+        %td= @driver.name
+    %tr
+        %td Surname
+        %td= @driver.surname
+    %tr
+        %td Birth
+        %td= @driver.birth
+    %tr
+        %td Place
+        %td= @driver.place
+    %tr
+        %td Valid_from
+        %td= @driver.valid_from
+    %tr
+        %td Valid_to
+        %td= @driver.valid_to
+    %tr
+        %td National_id
+        %td= @driver.national_id
+    %tr
+        %td Address
+        %td= @driver.address
 
-%p= link_to "Back to Driver List", drivers_path
+%p= link_to 'Edit', edit_driver_path(@driver)
+
+%p= link_to "Back to drivers", drivers_path

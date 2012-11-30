@@ -1,17 +1,5 @@
 %h2 Add Registration Plate
 
-=form_for @plate do |f|
-    %table
-        %tr
-            %td= f.label :reg, "Registration number"
-            %td= f.text_field :reg
-        %tr
-            %td= f.label :valid_from
-            %td= f.text_field :valid_from
-        %tr
-            %td= f.label :valid_to
-            %td= f.text_field :valid_to
-        %tr
-            %td{:columnspan => 2}= f.submit
+=render 'form'
 
 %p= link_to "Back to Registration Plates", registration_plates_path

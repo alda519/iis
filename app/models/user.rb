@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
     has_secure_password
     validates_presence_of :password, :on => :create
     validates_presence_of :login
+    validates_presence_of :name
     validates_uniqueness_of :login
 
     has_and_belongs_to_many :roles

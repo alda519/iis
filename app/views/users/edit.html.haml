@@ -1,17 +1,25 @@
 %h2 User detail
 
-= form_for @user do
-    %b Name
+- if @user.errors.any?
+    - for message in @user.errors.full_messages
+        .form_error= message
     %br
-    =text_field_tag "user[name]", @user.name, :disabled=>!@current_user.admin?
-    %br
-    %b Login
-    %br
-    =text_field_tag "user[login]", @user.login, :disabled=>!@current_user.admin?
-    %br 
-    %ul
-        -Role.all.each do |role|
-            %li
-                =check_box_tag "user[role_ids][]", role.id, @user.roles.include?(role), :disabled=>!@current_user.admin?
-                =role.name
-    =submit_tag "Update"
+
+= form_for @user do |f|
+    .field
+        %div=f.label :name
+        %div=f.text_field :name, {:disabled=>(!@current_user.admin? and @current_user != @user)}
+    .field
+        %div=f.label :login
+        %div=f.text_field :login, {:disabled=>(!@current_user.admin? and @current_user != @user)}
+    .field
+        =f.label :roles
+        %ul
+            -Role.all.each do |role|
+                %li
+                    =check_box_tag "user[role_ids][]", role.id, @user.roles.include?(role), :disabled=>!@current_user.admin?
+                    =role.name
+    =f.submit
+
+%p
+    =link_to "Back to users", users_path

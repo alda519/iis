@@ -19,9 +19,12 @@ class VehiclesController < ApplicationController
     end
 
     def create
-        v = Vehicle.new(params[:vehicle])
-        v.save
-        redirect_to :action => :index
+        @vehicle = Vehicle.new(params[:vehicle])
+        if @vehicle.save
+            redirect_to :action => :index
+        else
+            render :action => 'new'
+        end
     end
 
     def update

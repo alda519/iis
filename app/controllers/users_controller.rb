@@ -31,7 +31,7 @@ class UsersController < ApplicationController
         @user = User.find(params[:id])
 
         if @current_user.admin?
-            # ok
+            params[:user][:role_ids] ||= []
         elsif @current_user == @user
             params[:user].delete(:role_ids)
         else

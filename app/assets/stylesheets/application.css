@@ -74,3 +74,11 @@ h1 {
     color: green;
     padding: 8px;
 }
+
+.field_with_errors label {
+    color: red;
+}
+
+.form_error {
+    color: red;
+}

@@ -1,15 +1,14 @@
 %h2 Registration Plate Detail
 
-=form_for @plate do |f|
-	%table
-		%tr
-			%td= f.label :reg, "Registration number"
-			%td= f.text_field :reg, :readonly => true
-		%tr
-			%td= f.label :valid_from
-			%td= f.text_field :valid_from, :readonly => true
-		%tr
-			%td= f.label :valid_to
-			%td= f.text_field :valid_to, :readonly => true
+%table{:width => '100%'}
+	%tr
+		%td Registration number
+		%td= @plate.reg
+	%tr
+		%td Valid from
+		%td= @plate.valid_from
+	%tr
+		%td Valid to
+		%td= @plate.valid_to
 
 %p= link_to "Back to Registration Plates", registration_plates_path
