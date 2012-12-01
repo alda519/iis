@@ -4,6 +4,6 @@ class RegistrationPlate < ActiveRecord::Base
   belongs_to :vehicle
   belongs_to :driver
 
-  validates_presence_of :reg
+  validates_presence_of :reg, :message => "number can't be blank"
 
 end

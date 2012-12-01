@@ -2,13 +2,15 @@
 
 %table{:width => "700px"}
     %tr.thead
+        %th{:width => "20%"} VIN
         %th{:width => "10%"} Year
-        %th{:width => "35%"} Brand
-        %th{:width => "35%"} Model
+        %th{:width => "25%"} Brand
+        %th{:width => "25%"} Model
         %th{:width => "10%"} Show
         %th{:width => "10%"} Edit
     - @vehicles.each_with_index do |v, i|
         %tr{ :class => "#{i%2==0? 'even':'odd'}" }
+            %td= v.vin
             %td= v.year
             %td= v.brand
             %td= v.model
