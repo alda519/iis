@@ -46,12 +46,18 @@ Vehicle.create(:vin => '094idf94', :year => 2005, :brand => 'Audi', :model => 'F
 
 # SPZ
 
+# typy prestupku
+
 # Prestupky
 OffenceType.create(:points => 1, :fine_from => , :fine_to => , :descr => "")
 OffenceType.create(:points => 2, :fine_from => , :fine_to => , :descr => "")
 OffenceType.create(:points => 2, :fine_from => , :fine_to => , :descr => "")
 OffenceType.create(:points => 5, :fine_from => , :fine_to => , :descr => "")
 OffenceType.create(:points => 7, :fine_from => , :fine_to => , :descr => "")
-# Atd. TBD
+
+# omezeni RO
+LicenceRestrict(:from => , :to =>, :descr => "", :driver_id => )
+LicenceRestrict(:from => , :to =>, :descr => "", :driver_id => )
+LicenceRestrict(:from => , :to =>, :descr => "", :driver_id => )
 
 =end

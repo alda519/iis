@@ -1,0 +1,16 @@
+%h2 LicenceRestricts
+
+%table{:width => "100%"}
+    %tr.thead 
+        %th{:width => "40%"} Driver
+        %th{:width => "40%"} From
+        %th{:width => "10%"} Show
+        %th{:width => "10%"} Edit
+    - @licence_restricts.each_with_index do |d, i|
+        %tr{ :class => "#{i%2==0? 'even':'odd'}" }
+            %td= d.driver.fullname
+            %td= d.from
+            %td= link_to "Detail", d
+            %td= link_to "Edit", edit_licence_restrict_path(d)
+
+%p= link_to "New Licence Restriction", new_licence_restrict_path

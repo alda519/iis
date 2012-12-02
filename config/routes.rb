@@ -1,6 +1,7 @@
 Iis::Application.routes.draw do
 
   resources :offences
+  resources :licence_restricts
 
   resources :users#, :only => [:new, :create]#, :index]
   get "log_out" => "sessions#destroy"
