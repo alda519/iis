@@ -1,0 +1,26 @@
+%h2 Offence detail
+
+%table{:width => '100%'}
+    %tr
+        %td Where
+        %td= @offence.where
+    %tr
+        %td When
+        %td= @offence.when
+    %tr
+        %td Fine
+        %td= @offence.fine
+    %tr
+        %td Description
+        %td= @offence.descr
+    %tr
+        %td Type
+        %td= link_to @offence.offence_type.descr, offence_type_path(@offence.offence_type)
+    %tr
+        %td Driver
+        %td= link_to @offence.driver.fullname, driver_path(@offence.driver)
+
+
+%p= link_to 'Edit', edit_offence_path(@offence)
+
+%p= link_to 'Back to offences', offences_path

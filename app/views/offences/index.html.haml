@@ -1,0 +1,18 @@
+%h2 Offences
+
+%table{:width => "100%"}
+    %tr.thead 
+        %th{:width => "40%"} Date
+        %th{:width => "20%"} Place
+        %th{:width => "20%"} Driver
+        %th{:width => "10%"} Show
+        %th{:width => "10%"} Edit
+    - @offences.each_with_index do |d, i|
+        %tr{ :class => "#{i%2==0? 'even':'odd'}" }
+            %td= d.when
+            %td= d.where
+            %td= d.driver.fullname
+            %td= link_to "Detail", d
+            %td= link_to "Edit", edit_offence_path(d)
+
+%p= link_to "New Offence", new_offence_path

@@ -1,0 +1,28 @@
+
+- if @offence.errors.any?
+    - for message in @offence.errors.full_messages
+        .form_error= message
+    %br
+
+= form_for @offence do |f|
+    .field
+        %div= f.label :when
+        %div= f.text_field :when
+    .field
+        %div= f.label :where
+        %div= f.text_field :where
+    .field
+        %div= f.label :fine
+        %div= f.text_field :fine
+    .field
+        %div= f.label :description
+        %div= f.text_field :descr
+    .field
+        %div= f.label :driver
+        %div= f.select :driver_id, @drivers.map { |d| [d.name+" "+d.surname, d.id]}
+    .field
+        %div= f.label :type
+        %div= f.select :offence_type_id, @offence_types.map { |o| [o.descr, o.id]}
+    .field
+        %div= f.submit
+

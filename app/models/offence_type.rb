@@ -1,6 +1,8 @@
 class OffenceType < ActiveRecord::Base
   attr_accessible :descr, :fine_from, :fine_to, :points
 
+  has_many :offences
+
   validates_presence_of :points
   validates_presence_of :fine_from
   validates_presence_of :fine_to

@@ -3,9 +3,14 @@ class Driver < ActiveRecord::Base
 
   has_many :registration_plates
   has_many :vehicles, :through => :registration_plates
+  has_many :offences
 
   validates_presence_of :name
   validates_presence_of :surname
   validates_presence_of :national_id
+
+  def fullname
+    name + " " + surname
+  end
 
 end

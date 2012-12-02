@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  when: 2012-12-01 10:57:34
+  where: MyString
+  fine: 1
+  descr: MyString
+  offence_type_id: 1
+  driver_id: 1
+
+two:
+  when: 2012-12-01 10:57:34
+  where: MyString
+  fine: 1
+  descr: MyString
+  offence_type_id: 1
+  driver_id: 1
