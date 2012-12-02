@@ -1,0 +1,48 @@
+class LicenceGroupsController < ApplicationController
+
+    before_filter :authenticate_user
+
+    def index
+        @licence_groups = LicenceGroup.all
+    end
+
+    def show
+        @licence_group = LicenceGroup.find(params[:id])
+    end
+
+    def edit
+        @licence_group = LicenceGroup.find(params[:id])
+        @drivers = Driver.all
+    end
+
+    def new
+        @licence_group = LicenceGroup.new
+        @drivers = Driver.all
+    end
+
+    def create
+        @licence_group = LicenceGroup.new params[:licence_group]
+        @drivers = Driver.all
+        if @licence_group.save
+            redirect_to :action => :index, :notice => "LicenceGroup created."
+        else
+            render :action => "new"
+        end
+    end
+
+    def update
+        @licence_group = LicenceGroup.find(params[:id])
+        @drivers = Driver.all
+        if @licence_group.update_attributes(params[:licence_group])
+            redirect_to :action => :index
+        else
+            render :edit
+        end
+    end
+
+    def destroy
+        LicenceGroup.find(params[:id]).delete
+        redirect_to :action => :index
+    end
+
+end

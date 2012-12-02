@@ -5,6 +5,7 @@ class Driver < ActiveRecord::Base
   has_many :vehicles, :through => :registration_plates
   has_many :offences
   has_many :licence_restricts
+  has_many :licence_groups
 
   validates_presence_of :name
   validates_presence_of :surname

@@ -1,0 +1,19 @@
+%h2 Licence Group detail
+
+%table{:width => '100%'}
+    %tr
+        %td Group
+        %td= @licence_group.group
+    %tr
+        %td Valid from
+        %td= @licence_group.valid_from
+    %tr
+        %td Valid to
+        %td= @licence_group.valid_to
+    %tr
+        %td Driver
+        %td= link_to @licence_group.driver.fullname, driver_path(@licence_group.driver)
+
+%p= link_to 'Edit', edit_licence_group_path(@licence_group)
+
+%p= link_to 'Back to licence groups', licence_groups_path

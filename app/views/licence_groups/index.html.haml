@@ -1,0 +1,18 @@
+%h2 Licence Groups
+
+%table{:width => "100%"}
+    %tr.thead 
+        %th{:width => "50%"} Driver
+        %th{:width => "10%"} Group
+        %th{:width => "20%"} From
+        %th{:width => "10%"} Show
+        %th{:width => "10%"} Edit
+    - @licence_groups.each_with_index do |d, i|
+        %tr{ :class => "#{i%2==0? 'even':'odd'}" }
+            %td= d.driver.fullname
+            %td= d.group
+            %td= d.valid_from
+            %td= link_to "Detail", d
+            %td= link_to "Edit", edit_licence_group_path(d)
+
+%p= link_to "New Licence Group", new_licence_group_path
