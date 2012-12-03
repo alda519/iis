@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121202231008) do
+ActiveRecord::Schema.define(:version => 20121203120618) do
 
   create_table "bonus_points", :force => true do |t|
     t.integer  "points"
@@ -33,6 +33,15 @@ ActiveRecord::Schema.define(:version => 20121202231008) do
     t.string   "address"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+  end
+
+  create_table "insurances", :force => true do |t|
+    t.date     "from"
+    t.date     "to"
+    t.string   "note"
+    t.integer  "vehicle_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "licence_groups", :force => true do |t|
@@ -63,7 +72,7 @@ ActiveRecord::Schema.define(:version => 20121202231008) do
   end
 
   create_table "offences", :force => true do |t|
-    t.datetime "when"
+    t.date     "when"
     t.string   "where"
     t.integer  "fine"
     t.string   "descr"
@@ -92,6 +101,15 @@ ActiveRecord::Schema.define(:version => 20121202231008) do
   create_table "roles_users", :force => true do |t|
     t.integer "role_id"
     t.integer "user_id"
+  end
+
+  create_table "thefts", :force => true do |t|
+    t.date     "when"
+    t.string   "where"
+    t.boolean  "returned"
+    t.integer  "vehicle_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|

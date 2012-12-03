@@ -1,0 +1,19 @@
+%h2 Theft detail
+
+%table{:width => '100%'}
+    %tr
+        %td When
+        %td= @theft.when
+    %tr
+        %td Where
+        %td= @theft.where
+    %tr
+        %td Returned
+        %td= @theft.returned
+    %tr
+        %td Vehicle
+        %td= link_to @theft.vehicle.fullname, theft_path(@theft.vehicle)
+
+%p= link_to 'Edit', edit_theft_path(@theft)
+
+%p= link_to 'Back to thefts', thefts_path

@@ -13,4 +13,16 @@ class User < ActiveRecord::Base
         roles.include?(Role.find_by_name("Admin"))
     end
 
+    def judge?
+        roles.include?(Role.find_by_name("Judge"))
+    end
+
+    def policeman?
+        roles.include?(Role.find_by_name("Policeman"))
+    end
+
+    def clerk?
+        roles.include?(Role.find_by_name("Clerk"))
+    end
+
 end

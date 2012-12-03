@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  when: 2012-12-03
+  where: MyString
+  returned: false
+  vehicle_id: 1
+
+two:
+  when: 2012-12-03
+  where: MyString
+  returned: false
+  vehicle_id: 1

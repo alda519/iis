@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  type: 
+  descr: MyString
+  from: 2012-12-03
+  to: 2012-12-03
+  note: MyString
+  vehicle_id: 1
+
+two:
+  type: 
+  descr: MyString
+  from: 2012-12-03
+  to: 2012-12-03
+  note: MyString
+  vehicle_id: 1

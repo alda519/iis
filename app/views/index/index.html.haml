@@ -18,6 +18,29 @@
     %li new offence
     %li list offence
 
+-if @current_user.admin?
+    %h2 ADMIN !!!
+
+
+=link_to "Drivers", drivers_path
+=link_to "Bonus Points", bonus_points_path
+
+=link_to "Vehicles", vehicles_path
+=link_to "Registration Plates", registration_plates_path
+=link_to "Thefts", thefts_path
+=link_to "Insurances", insurances_path
+
+=link_to "Offence Types", offence_types_path
+=link_to "Offences", offences_path
+
+=link_to "Driving Licences", licence_groups_path
+=link_to "Driving Restrictions", licence_restricts_path
+
+
+
+
+
+
 /= link_to drivers_path do
 /    .button="Drivers"
 

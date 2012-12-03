@@ -1,0 +1,18 @@
+%h2 Thefts
+
+%table{:width => "100%"}
+    %tr.thead 
+        %th{:width => "55%"} Vehicle
+        %th{:width => "20%"} Date
+        %th{:width => "15%"} Returned
+        %th{:width => "10%"} Show
+        %th{:width => "10%"} Edit
+    - @thefts.each_with_index do |d, i|
+        %tr{ :class => "#{i%2==0? 'even':'odd'}" }
+            %td= d.vehicle.fullname
+            %td= d.when
+            %td= d.returned
+            %td= link_to "Detail", d
+            %td= link_to "Edit", edit_theft_path(d)
+
+%p= link_to "New Theft", new_theft_path
