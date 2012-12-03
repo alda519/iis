@@ -19,7 +19,8 @@
                 %li
                     =check_box_tag "user[role_ids][]", role.id, @user.roles.include?(role), :disabled=>!@current_user.admin?
                     =role.name
-    =f.submit
+    -if @current_user.admin? || @current_user == @user
+        =f.submit
 
 %p
     =link_to "Back to users", users_path

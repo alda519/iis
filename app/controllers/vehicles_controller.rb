@@ -15,7 +15,7 @@ class VehiclesController < ApplicationController
     end
 
     def new
-        @vehicle = Vehicle.new
+        @vehicle = Vehicle.new vin: ""
     end
 
     def create
