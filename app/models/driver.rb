@@ -6,6 +6,7 @@ class Driver < ActiveRecord::Base
   has_many :offences
   has_many :licence_restricts
   has_many :licence_groups
+  has_many :bonus_points
 
   validates_presence_of :name
   validates_presence_of :surname

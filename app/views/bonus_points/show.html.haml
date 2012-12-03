@@ -1,0 +1,19 @@
+%h2 Bonus Points detail
+
+%table{:width => '100%'}
+    %tr
+        %td Points
+        %td= @bonus_point.points
+    %tr
+        %td When
+        %td= @bonus_point.when
+    %tr
+        %td Note
+        %td= @bonus_point.note
+    %tr
+        %td Driver
+        %td= link_to @bonus_point.driver.fullname, driver_path(@bonus_point.driver)
+
+%p= link_to 'Edit', edit_bonus_point_path(@bonus_point)
+
+%p= link_to 'Back to bonus_points', bonus_points_path

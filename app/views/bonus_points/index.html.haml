@@ -1,0 +1,18 @@
+%h2 Bonus Points
+
+%table{:width => "100%"}
+    %tr.thead 
+        %th{:width => "30%"} Driver
+        %th{:width => "30%"} When
+        %th{:width => "20%"} Points
+        %th{:width => "10%"} Show
+        %th{:width => "10%"} Edit
+    - @bonus_points.each_with_index do |d, i|
+        %tr{ :class => "#{i%2==0? 'even':'odd'}" }
+            %td= d.driver.fullname
+            %td= d.when
+            %td= d.points
+            %td= link_to "Detail", d
+            %td= link_to "Edit", edit_bonus_point_path(d)
+
+%p= link_to "New Bonus Points", new_bonus_point_path
