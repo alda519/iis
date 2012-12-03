@@ -27,7 +27,7 @@ class OffencesController < ApplicationController
         @offence_types = OffenceType.all
         @drivers = Driver.all
         if @offence.save
-            redirect_to :action => :index, :notice => "Offence created."
+            redirect_to offences_path, :notice => "Offence created"
         else
             render :action => "new"
         end
@@ -38,7 +38,7 @@ class OffencesController < ApplicationController
         @offence_types = OffenceType.all
         @drivers = Driver.all
         if @offence.update_attributes(params[:offence])
-            redirect_to :action => :index
+            redirect_to offences_path, :notice => "Offence updated"
         else
             render :edit
         end
@@ -46,7 +46,7 @@ class OffencesController < ApplicationController
 
     def destroy
         Offence.find(params[:id]).delete
-        redirect_to :action => :index
+        redirect_to offences_path, :notice => "Offence destroyed"
     end
 
 end

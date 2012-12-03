@@ -21,7 +21,7 @@ class OffenceTypesController < ApplicationController
     def create
         @offence_type = OffenceType.new(params[:offence_type])
         if @offence_type.save
-            redirect_to @offence_type, notice: 'Offence type was successfully created.'
+            redirect_to @offence_type, notice: 'Offence type created'
         else
             render action: "new"
         end
@@ -30,7 +30,7 @@ class OffenceTypesController < ApplicationController
     def update
         @offence_type = OffenceType.find(params[:id])
         if @offence_type.update_attributes(params[:offence_type])
-            redirect_to @offence_type, notice: 'Offence type was successfully updated.'
+            redirect_to @offence_type, notice: 'Offence type updated'
         else
             render action: "edit"
         end
@@ -39,7 +39,7 @@ class OffenceTypesController < ApplicationController
     def destroy
         @offence_type = OffenceType.find(params[:id])
         @offence_type.destroy
-        redirect_to offence_types_url
+        redirect_to offence_types_url, :notice => "Offence type destroyed"
     end
 
 end

@@ -24,7 +24,7 @@ class LicenceRestrictsController < ApplicationController
         @licence_restrict = LicenceRestrict.new params[:licence_restrict]
         @drivers = Driver.all
         if @licence_restrict.save
-            redirect_to :action => :index, :notice => "LicenceRestrict created."
+            redirect_to licence_restricts_path, :notice => "Licence Restriction created"
         else
             render :action => "new"
         end
@@ -34,7 +34,7 @@ class LicenceRestrictsController < ApplicationController
         @licence_restrict = LicenceRestrict.find(params[:id])
         @drivers = Driver.all
         if @licence_restrict.update_attributes(params[:licence_restrict])
-            redirect_to :action => :index
+            redirect_to licence_restricts_path, :notice => "Licence Restriction updated"
         else
             render :edit
         end
@@ -42,7 +42,7 @@ class LicenceRestrictsController < ApplicationController
 
     def destroy
         LicenceRestrict.find(params[:id]).delete
-        redirect_to :action => :index
+        redirect_to licence_restricts_path, :notice => "Licence Restriction destroyed"
     end
 
 end

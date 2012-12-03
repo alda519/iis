@@ -8,12 +8,12 @@ class UsersController < ApplicationController
 
     def create
         unless @current_user.admin?
-            redirect_to root_url, :warn => 'You are not authorized to create new users.'
+            redirect_to root_url, :alert => 'You are not authorized to create new users.'
             return
         end
         @user = User.new(params[:user])
         if @user.save
-            redirect_to root_url, :notice => 'New user created.'
+            redirect_to users_url, :notice => 'New user created.'
         else
             render :new
         end
@@ -35,8 +35,7 @@ class UsersController < ApplicationController
         elsif @current_user == @user
             params[:user].delete(:role_ids)
         else
-            flash[:error] = "You are not authorized to update users."
-            redirect_to users_path, :notice => "YOYO"
+            redirect_to users_path, :alert => "You are not authorized to update users."
             return
         end
 

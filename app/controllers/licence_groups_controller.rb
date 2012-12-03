@@ -24,7 +24,7 @@ class LicenceGroupsController < ApplicationController
         @licence_group = LicenceGroup.new params[:licence_group]
         @drivers = Driver.all
         if @licence_group.save
-            redirect_to :action => :index, :notice => "LicenceGroup created."
+            redirect_to licence_groups_path, :notice => "Licence Group created"
         else
             render :action => "new"
         end
@@ -34,7 +34,7 @@ class LicenceGroupsController < ApplicationController
         @licence_group = LicenceGroup.find(params[:id])
         @drivers = Driver.all
         if @licence_group.update_attributes(params[:licence_group])
-            redirect_to :action => :index
+            redirect_to licence_groups_path, :notice => "Licence Group updated"
         else
             render :edit
         end
@@ -42,7 +42,7 @@ class LicenceGroupsController < ApplicationController
 
     def destroy
         LicenceGroup.find(params[:id]).delete
-        redirect_to :action => :index
+        redirect_to licence_groups_path, :notice => "Licence Group destroyed"
     end
 
 end

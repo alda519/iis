@@ -21,7 +21,7 @@ class VehiclesController < ApplicationController
     def create
         @vehicle = Vehicle.new(params[:vehicle])
         if @vehicle.save
-            redirect_to :action => :index
+            redirect_to vehicles_path, :notice => "Vehicle created"
         else
             render :action => 'new'
         end
@@ -30,7 +30,7 @@ class VehiclesController < ApplicationController
     def update
         @vehicle = Vehicle.find(params[:id])
         if @vehicle.update_attributes(params[:vehicle])
-            redirect_to :action => :index
+            redirect_to vehicles_path, :notice => "Vehicle updated"
         else
             render :edit
         end

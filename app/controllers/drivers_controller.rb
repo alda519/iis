@@ -21,7 +21,7 @@ class DriversController < ApplicationController
     def create
         @driver = Driver.new params[:driver]
         if @driver.save
-            redirect_to :action => :index, :notice => "Driver created."
+            redirect_to drivers_path, :notice => "Driver created"
         else
             render :action => "new"
         end
@@ -30,7 +30,7 @@ class DriversController < ApplicationController
     def update
         @driver = Driver.find(params[:id])
         if @driver.update_attributes(params[:driver])
-            redirect_to :action => :index
+            redirect_to drivers_path, :notice => "Driver upadated"
         else
             render :edit
         end
@@ -38,7 +38,7 @@ class DriversController < ApplicationController
 
     def destroy
         Driver.find(params[:id]).delete
-        redirect_to :action => :index
+        redirect_to drivers_path, :notice => "Driver destroyed"
     end
 
 end

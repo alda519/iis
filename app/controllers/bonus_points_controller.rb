@@ -24,8 +24,7 @@ class BonusPointsController < ApplicationController
         @bonus_point = BonusPoint.new params[:bonus_point]
         @drivers = Driver.all
         if @bonus_point.save
-            flash[:notice] = "Bonus points created"
-            redirect_to :action => :index
+            redirect_to bonus_points_path, :notice => "Bonus points created"
         else
             render :action => "new"
         end
@@ -35,7 +34,7 @@ class BonusPointsController < ApplicationController
         @bonus_point = BonusPoint.find(params[:id])
         @drivers = Driver.all
         if @bonus_point.update_attributes(params[:bonus_point])
-            redirect_to :action => :index
+            redirect_to bonus_points_path, :notice => "Bonus points updated"
         else
             render :edit
         end
@@ -43,7 +42,7 @@ class BonusPointsController < ApplicationController
 
     def destroy
         BonusPoint.find(params[:id]).delete
-        redirect_to :action => :index
+        redirect_to bonus_points_path, :notice => "Bonus points destroyed"
     end
 
 end

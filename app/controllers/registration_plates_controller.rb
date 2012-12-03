@@ -27,7 +27,7 @@ class RegistrationPlatesController < ApplicationController
         @drivers = Driver.all
         @vehicles = Vehicle.all
         if @plate.save
-            redirect_to :action => :index
+            redirect_to registration_plates_path, :notice => "Registration Plate created"
         else
             render :action => :new
         end
@@ -36,7 +36,7 @@ class RegistrationPlatesController < ApplicationController
     def update
         @plate = RegistrationPlate.find(params[:id])
         if @plate.update_attributes(params[:registration_plate])
-            redirect_to :action => :index
+            redirect_to registration_plates_path, :notice => "Registration Plate updated"
         else
             render :edit
         end
@@ -44,7 +44,7 @@ class RegistrationPlatesController < ApplicationController
 
     def destroy
         RegistrationPlate.find(params[:id]).delete
-        redirect_to :action => :index
+        redirect_to registration_plates_path, :notice => "Registration Plate destroyed"
     end
 
 end
