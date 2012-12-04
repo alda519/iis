@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121203120618) do
+ActiveRecord::Schema.define(:version => 20121203200000) do
 
   create_table "bonus_points", :force => true do |t|
     t.integer  "points"
