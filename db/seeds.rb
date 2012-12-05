@@ -70,16 +70,16 @@ Offence.create(:when => "16.3.2011", :where => "Phoenix", fine => "1000", :offen
 Offence.create(:when => "4.6.2012", :where => "New Orleans", fine => "2000", :offence_type_id => 3, :driver_id => 5)
 
 # omezeni RO
-LicenceRestrict(:from => , :to =>, :descr => "", :driver_id => )
-LicenceRestrict(:from => , :to =>, :descr => "", :driver_id => )
-LicenceRestrict(:from => , :to =>, :descr => "", :driver_id => )
+LicenceRestrict.create(:from => , :to =>, :descr => "", :driver_id => )
+LicenceRestrict.create(:from => , :to =>, :descr => "", :driver_id => )
+LicenceRestrict.create(:from => , :to =>, :descr => "", :driver_id => )
 
 # ridicaky
 LicenceGroup.create(:driver_id)
 
 # bonus body
-BonusPoint(points: 3, when: "4.5.2005", driver_id: 1)
-BonusPoint(points: 4, when: "6.7.2008", driver_id: 2)
+BonusPoint.create(points: 3, when: "4.5.2005", driver_id: 1)
+BonusPoint.create(points: 4, when: "6.7.2008", driver_id: 2)
 
 # kradeze
 Theft.create(:when => "1.1.2010", :vehicle_id => 2, :returned => true)
