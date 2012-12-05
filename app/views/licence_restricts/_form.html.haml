@@ -5,7 +5,7 @@
 
 = form_for @licence_restrict do |f|
     .field
-        %div= f.label :from
+        %div= f.label :from, "From * (YYYY-MM-DD)"
         %div= f.text_field :from
     .field
         %div= f.label :to
@@ -14,7 +14,7 @@
         %div= f.label :descr
         %div= f.text_field :descr
     .field
-        %div= f.label :driver_id
+        %div= f.label :driver_id, "Driver *"
         %div= f.select :driver_id, @drivers.map { |d| [d.fullname, d.id]}
     .field
         %div= f.submit

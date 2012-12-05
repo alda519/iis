@@ -5,16 +5,16 @@
 
 = form_for @licence_group do |f|
     .field
-        %div= f.label :group
+        %div= f.label :group, "Group *"
         %div= f.text_field :group
     .field
-        %div= f.label :valid_from
+        %div= f.label :valid_from, "Valid from * (YYYY-MM-DD)"
         %div= f.text_field :valid_from
     .field
         %div= f.label :valid_to
         %div= f.text_field :valid_to
     .field
-        %div= f.label :driver_id
+        %div= f.label :driver_id, "Driver *"
         %div= f.select :driver_id, @drivers.map { |d| [d.fullname, d.id] }
     .field
         %div= f.submit

@@ -5,13 +5,13 @@
 
 = form_for @insurance do |f|
     .field
-        %div= f.label :from
+        %div= f.label :from, "From (YYYY-MM-DD)"
         %div= f.text_field :from
     .field
-        %div= f.label :to
+        %div= f.label :to, "To (YYYY-MM-DD)"
         %div= f.text_field :to
     .field
-        %div= f.label :vehicle_id
+        %div= f.label :vehicle_id, "Vehicle *"
         %div= f.select :vehicle_id, @vehicles.map { |v| [v.fullname, v.id] }
     .field
         %div= f.label :note

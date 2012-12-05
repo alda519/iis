@@ -1,8 +1,14 @@
-%h2 Users
+%h2 My account
 
-%ul
-    -@users.each do |user|
-        %li=link_to user.name, edit_user_path(user)
+%p=link_to "Change my password", 'users/change_password'
+
+/%p=link_to "Delete my account", user_path(@current_user), :confirm => "Are you sure?", :method => :delete
+
+%p=link_to "Change my account", edit_user_path(@current_user)
 
 -if @current_user.admin?
-    =link_to "New User", new_user_path
+    %h2 Users
+    %ul
+        -@users.each do |user|
+            %li=link_to user.name, edit_user_path(user)
+    %p=link_to "New User", new_user_path

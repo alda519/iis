@@ -7,13 +7,13 @@
 
 = form_for @user do |f|
     .field
-        %div=f.label :name
+        %div=f.label :name, "Name *"
         %div=f.text_field :name
     .field
-        %div=f.label :login
+        %div=f.label :login, "Login *"
         %div=f.text_field :login
     .field
-        %div=f.label :password
+        %div=f.label :password, "Password *"
         %div=f.password_field :password
     .field
         %div=f.label :password_confirmation

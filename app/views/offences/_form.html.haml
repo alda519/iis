@@ -5,22 +5,22 @@
 
 = form_for @offence do |f|
     .field
-        %div= f.label :when
+        %div= f.label :when, "When * (YYYY-MM-DD)"
         %div= f.text_field :when
     .field
         %div= f.label :where
         %div= f.text_field :where
     .field
-        %div= f.label :type
+        %div= f.label :type, "Type *"
         %div= f.select :offence_type_id, @offence_types.map { |o| [o.descr + " [" + o.fine_from.to_s + "-" + o.fine_to.to_s + "]", o.id]}
     .field
-        %div= f.label :fine
+        %div= f.label :fine, "Fine *"
         %div= f.text_field :fine
     .field
         %div= f.label :description
         %div= f.text_field :descr
     .field
-        %div= f.label :driver
+        %div= f.label :driver, "Driver *"
         %div= f.select :driver_id, @drivers.map { |d| [d.fullname, d.id]}
     .field
         %div= f.submit

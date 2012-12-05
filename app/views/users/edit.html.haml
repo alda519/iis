@@ -7,11 +7,15 @@
 
 = form_for @user do |f|
     .field
-        %div=f.label :name
+        %div=f.label :name, "Name *"
         %div=f.text_field :name, {:disabled=>(!@current_user.admin? and @current_user != @user)}
     .field
-        %div=f.label :login
+        %div=f.label :login, "Login *"
         %div=f.text_field :login, {:disabled=>(!@current_user.admin? and @current_user != @user)}
+    - if @current_user.admin?
+        .field
+            %div=f.label :password, "Password (do not fill unless you want to change it)"
+            %div=f.password_field :password
     .field
         =f.label :roles
         %ul
@@ -22,5 +26,7 @@
     -if @current_user.admin? || @current_user == @user
         =f.submit
 
-%p
-    =link_to "Back to users", users_path
+-if @current_user.admin?
+    %p=link_to "Delete this user", user_path, :confirm => "Are you sure?", :method => :delete
+
+%p=link_to "Back to users", users_path

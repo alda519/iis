@@ -6,16 +6,16 @@
 = form_for @vehicle do |f|
     %table
         .field
-            %div= f.label :vin
+            %div= f.label :vin, "VIN code *"
             %div= f.text_field :vin
         .field
-            %div= f.label :year
+            %div= f.label :year, "Year * (YYYY)"
             %div= f.text_field :year
         .field
-            %div= f.label :brand
+            %div= f.label :brand, "Brand *"
             %div= f.text_field :brand
         .field
-            %div= f.label :model
+            %div= f.label :model, "Model *"
             %div= f.text_field :model
         .field
             %div= f.label :color

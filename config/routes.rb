@@ -7,6 +7,9 @@ Iis::Application.routes.draw do
   resources :thefts
   resources :insurances
 
+  get "users/change_password"
+  post "users/change_password"
+
   resources :users#, :only => [:new, :create]#, :index]
   get "log_out" => "sessions#destroy"
   get "log_in" => "sessions#new"

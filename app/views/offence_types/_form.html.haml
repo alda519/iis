@@ -5,13 +5,13 @@
 
 = form_for(@offence_type) do |f|
     .field
-        %div= f.label :points
+        %div= f.label :points, "Points *"
         %div= f.number_field :points
     .field
-        %div= f.label :fine_from
+        %div= f.label :fine_from, "Fine from *"
         %div= f.number_field :fine_from
     .field
-        %div= f.label :fine_to
+        %div= f.label :fine_to, "Fine to *"
         %div= f.number_field :fine_to
     .field
         %div= f.label :descr, "Description"

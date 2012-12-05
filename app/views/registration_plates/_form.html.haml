@@ -5,7 +5,7 @@
 
 =form_for @plate do |f|
     .field
-        %div= f.label :reg, "Registration number"
+        %div= f.label :reg, "Registration number *"
         %div= f.text_field :reg
     .field
         %div= f.label :valid_from
@@ -14,10 +14,10 @@
         %div= f.label :valid_to
         %div= f.text_field :valid_to
     .field
-        %div Driver
+        %div= f.label :driver_id, "Driver *"
         %div= f.select :driver_id, @drivers.map { |d| [d.name, d.id] }
     .filed
-        %div Vehicle
+        %div= f.label :vehicle_id, "Vehicle *"
         %div= f.select :vehicle_id, @vehicles.map { |v| [v.brand + " " + v.model, v.id] }
     .field
         %div= f.submit

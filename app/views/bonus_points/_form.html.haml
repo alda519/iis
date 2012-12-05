@@ -5,16 +5,16 @@
 
 = form_for @bonus_point do |f|
     .field
-        %div= f.label :points
+        %div= f.label :points, "Points *"
         %div= f.text_field :points
     .field
-        %div= f.label :when
+        %div= f.label :when, "When *"
         %div= f.text_field :when
     .field
         %div= f.label :note
         %div= f.text_field :note
     .field
-        %div= f.label :driver_id
+        %div= f.label :driver_id, "Driver *"
         %div= f.select :driver_id, @drivers.map { |d| [d.fullname, d.id] }
     .field
         %div= f.submit

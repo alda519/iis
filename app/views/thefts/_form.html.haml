@@ -5,13 +5,13 @@
 
 = form_for @theft do |f|
     .field
-        %div= f.label :when
+        %div= f.label :when, "When * (YYYY-MM-DD)"
         %div= f.text_field :when
     .field
         %div= f.label :where
         %div= f.text_field :where
     .field
-        %div= f.label :vehicle_id
+        %div= f.label :vehicle_id, "Vehicle *"
         %div= f.select :vehicle_id, @vehicles.map { |v| [v.fullname, v.id] }
     .field
         %div= f.label :returned
