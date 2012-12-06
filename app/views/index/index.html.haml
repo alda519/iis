@@ -1,27 +1,3 @@
--if @current_user.judge?
-    / prestupek U
-    %h2 Offences
-    %ul
-        %li=link_to "Browse offences", offences_path
-        %li=link_to "Browse drivers", drivers_path
-
--if @current_user.policeman?
-    / vozidla R
-    %h2 Vehicles
-    %ul
-        %li=link_to "Browse vehicles", vehicles_path
-    / kradez RWU
-    %h2 Vehicle thefts
-    / prestupky RW
-    / ridici R (skore)
-
--if @current_user.clerk?
-    / vozidla RW
-    / prestupky RW
-    / ridici RW
-
-%hr
-
 %h2 Offences
 =link_to "Offences", offences_path
 =link_to "Add offence", new_offence_path
@@ -69,39 +45,6 @@
 /=link_to "", edit_driver_path
 /=link_to "", driver_path
 
-%hr
-
-%h2 TODO: tohle bych zrusil
-
-%h2 Vehicle insurances
-=link_to "", insurances_path
-=link_to "", new_insurance_path
-/=link_to "", edit_insurance_path
-/=link_to "", insurance_path
-
-%h2 Licence restrictions
-=link_to "Licence restrictions", licence_restricts_path
-=link_to "Add licence restriction", new_licence_restrict_path
-/=link_to "Edit", edit_licence_restrict_path
-/=link_to "", licence_restrict_path
-=link_to "", licence_groups_path
-
-%hr
-
-=link_to "Add driver", new_driver_path
-=link_to "Show all drivers", drivers_path
-/=link_to "Find driver",
-
-=link_to "Drivers", drivers_path
-=link_to "Bonus Points", bonus_points_path
-
-=link_to "Vehicles", vehicles_path
-=link_to "Registration Plates", registration_plates_path
-=link_to "Thefts", thefts_path
-=link_to "Insurances", insurances_path
-
-=link_to "Offence Types", offence_types_path
-=link_to "Offences", offences_path
-
-=link_to "Driving Licences", licence_groups_path
-=link_to "Driving Restrictions", licence_restricts_path
+- # asi zrusit, to je zbytecny
+- #=link_to "lic restr", ...
+- #=link_to "Insurances", insurances_path
