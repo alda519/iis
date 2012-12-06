@@ -1,12 +1,12 @@
 %h2 Log in
 
 =form_tag sessions_path do
-	.control-group.error
+	.control-group
 		%label.control-label
 			%b Login
 		.controls 
 			= text_field_tag :login, params[:login]
-	.control-group.success
+	.control-group
 		%label.control-label
 			%b Password
 		.controls
