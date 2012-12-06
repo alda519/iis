@@ -1,6 +1,8 @@
 %h2 Registration Plates
 
-%table{:width => "100%"}
+%p= link_to "New Registration Plate", new_registration_plate_path, {class: "btn btn-primary"}
+
+%table.table.table-striped{:width => "100%"}
     %tr.thead
         %th{:width => "20%"} Reg no.
         %th{:width => "30%"} Valid from
@@ -15,4 +17,3 @@
             %td= link_to "Detail", p
             %td= link_to "Edit", edit_registration_plate_path(p)
 
-%p= link_to "New Registration Plate", new_registration_plate_path

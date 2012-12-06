@@ -1,6 +1,8 @@
 %h2 Bonus Points
 
-%table{:width => "100%"}
+%p= link_to "New Bonus Points", new_bonus_point_path, {class: "btn btn-primary"}
+
+%table.table.table-striped{:width => "100%"}
     %tr.thead 
         %th{:width => "30%"} Driver
         %th{:width => "30%"} When
@@ -15,4 +17,3 @@
             %td= link_to "Detail", d
             %td= link_to "Edit", edit_bonus_point_path(d)
 
-%p= link_to "New Bonus Points", new_bonus_point_path

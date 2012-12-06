@@ -1,6 +1,8 @@
 %h2 Vehicles
 
-%table{:width => "100%"}
+%p= link_to "New Vehicle", new_vehicle_path, {class: "btn btn-primary"}
+
+%table.table.table-striped{:width => "100%"}
     %tr.thead
         %th{:width => "20%"} VIN
         %th{:width => "10%"} Year
@@ -17,4 +19,3 @@
             %td= link_to "Detail", v
             %td= link_to "Edit", edit_vehicle_path(v)
 
-%p= link_to "New Vehicle", new_vehicle_path

@@ -1,6 +1,8 @@
 %h2 Drivers
 
-%table{:width => "100%"}
+%p= link_to "New Driver", new_driver_path, {class: "btn btn-primary"}
+
+%table.table.table-striped{:width => "100%"}
     %tr.thead 
         %th{:width => "30%"} Name
         %th{:width => "30%"} Surname
@@ -15,4 +17,3 @@
             %td= link_to "Detail", d
             %td= link_to "Edit", edit_driver_path(d)
 
-%p= link_to "New Driver", new_driver_path

@@ -62,20 +62,22 @@ OffenceType.create(:points => 5, :fine_from => 2500 , :fine_to => 4000, :descr =
 OffenceType.create(:points => 7, :fine_from => 1000 , :fine_to => 2500, :descr => "parkovani na prechodu")
 
 # Prestupky
-Offence.create(:when => "6.2.2009", :where => "Los Angeles", fine => "4000", :offence_type_id => 1, :driver_id => 1)
-Offence.create(:when => "7.12.2008", :where => "Los Angeles", fine => "1500", :offence_type_id => 2, :driver_id => 1)
-Offence.create(:when => "1.9.2006", :where => "New York", fine => "2000", :offence_type_id => 3, :driver_id => 2)
-Offence.create(:when => "17.7.2004", :where => "Liptakov", fine => "3000", :offence_type_id => 4, :driver_id => 3)
-Offence.create(:when => "16.3.2011", :where => "Phoenix", fine => "1000", :offence_type_id => 5, :driver_id => 4)
-Offence.create(:when => "4.6.2012", :where => "New Orleans", fine => "2000", :offence_type_id => 3, :driver_id => 5)
-
-# omezeni RO
-LicenceRestrict.create(:from => , :to =>, :descr => "", :driver_id => )
-LicenceRestrict.create(:from => , :to =>, :descr => "", :driver_id => )
-LicenceRestrict.create(:from => , :to =>, :descr => "", :driver_id => )
+Offence.create(:when => "6.2.2009", :where => "Los Angeles", :fine => "4000", :offence_type_id => 1, :driver_id => 1)
+Offence.create(:when => "7.12.2008", :where => "Los Angeles", :fine => "1500", :offence_type_id => 2, :driver_id => 1)
+Offence.create(:when => "1.9.2006", :where => "New York", :fine => "2000", :offence_type_id => 3, :driver_id => 2)
+Offence.create(:when => "17.7.2004", :where => "Liptakov", :fine => "3000", :offence_type_id => 4, :driver_id => 3)
+Offence.create(:when => "16.3.2011", :where => "Phoenix", :fine => "1000", :offence_type_id => 5, :driver_id => 4)
+Offence.create(:when => "4.6.2012", :where => "New Orleans", :fine => "2000", :offence_type_id => 3, :driver_id => 5)
 
 # ridicaky
-LicenceGroup.create(:driver_id)
+LicenceGroup.create(:driver_id => "1", :valid_from => "20.03.1995", :valid_to => "20.10.2005", :group => "B")
+LicenceGroup.create(:driver_id => "1", :valid_from => "14.03.1994", :valid_to => "20.11.2004", :group => "D")
+LicenceGroup.create(:driver_id => "2", :valid_from => "2.03.1999", :valid_to => "20.10.2009", :group => "B")
+LicenceGroup.create(:driver_id => "2", :valid_from => "5.03.1980", :valid_to => "20.09.2000", :group => "C")
+LicenceGroup.create(:driver_id => "3", :valid_from => "17.06.1999", :valid_to => "20.12.2009", :group => "B")
+LicenceGroup.create(:driver_id => "4", :valid_from => "14.03.2000", :valid_to => "20.08.2010", :group => "B")
+LicenceGroup.create(:driver_id => "5", :valid_from => "10.4.2003", :valid_to => "20.4.2013", :group => "B")
+LicenceGroup.create(:driver_id => "5", :valid_from => "1.06.2010", :valid_to => "20.7.2020", :group => "C")
 
 # bonus body
 BonusPoint.create(points: 3, when: "4.5.2005", driver_id: 1)
@@ -85,4 +87,11 @@ BonusPoint.create(points: 4, when: "6.7.2008", driver_id: 2)
 Theft.create(:when => "1.1.2010", :vehicle_id => 2, :returned => true)
 Theft.create(:when => "11.11.2011", :vehicle_id => 5)
 
+=begin
 # pojistky
+
+# omezeni RO
+LicenceRestrict.create(:from => , :to =>, :descr => "", :driver_id => )
+LicenceRestrict.create(:from => , :to =>, :descr => "", :driver_id => )
+LicenceRestrict.create(:from => , :to =>, :descr => "", :driver_id => )
+=end

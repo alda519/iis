@@ -1,6 +1,8 @@
 %h2 Insurances
 
-%table{:width => "100%"}
+%p= link_to "New Insurance", new_insurance_path, {class: "btn btn-primary"}
+
+%table.table.table-striped{:width => "100%"}
     %tr.thead 
         %th{:width => "60%"} Vehicle
         %th{:width => "20%"} From
@@ -13,4 +15,3 @@
             %td= link_to "Detail", d
             %td= link_to "Edit", edit_insurance_path(d)
 
-%p= link_to "New Insurance", new_insurance_path

@@ -1,6 +1,8 @@
 %h2 Licence Groups
 
-%table{:width => "100%"}
+%p= link_to "New Licence Group", new_licence_group_path, {class: "btn btn-primary"}
+
+%table.table.table-striped{:width => "100%"}
     %tr.thead 
         %th{:width => "50%"} Driver
         %th{:width => "10%"} Group
@@ -15,4 +17,3 @@
             %td= link_to "Detail", d
             %td= link_to "Edit", edit_licence_group_path(d)
 
-%p= link_to "New Licence Group", new_licence_group_path

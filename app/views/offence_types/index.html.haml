@@ -1,6 +1,8 @@
 %h2 Offence types
 
-%table{:width => "100%"}
+%p= link_to 'New Offence type', new_offence_type_path, {class: "btn btn-primary"}
+
+%table.table.table-striped{:width => "100%"}
     %tr.thead
         %th{:width => "10%"} Points
         %th{:width => "15%"} Fine from
@@ -17,4 +19,3 @@
             %td= link_to 'Show', offence_type
             %td= link_to 'Edit', edit_offence_type_path(offence_type)
 
-%p= link_to 'New Offence type', new_offence_type_path
