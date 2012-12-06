@@ -14,5 +14,6 @@
         %td Description
         %td= @offence_type.descr
 
-%p= link_to 'Edit', edit_offence_type_path(@offence_type)
-%p= link_to 'Back to offence types', offence_types_path
+= link_to 'Edit', edit_offence_type_path(@offence_type), {class: "btn"}
+
+= link_to 'Back to offence types', offence_types_path, {class: "btn"}

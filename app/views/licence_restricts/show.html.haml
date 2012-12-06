@@ -14,7 +14,6 @@
         %td Description
         %td= @licence_restrict.descr
 
-%p= link_to 'Edit', edit_licence_restrict_path(@licence_restrict)
+= link_to 'Edit', edit_licence_restrict_path(@licence_restrict), {class: "btn"}
 
-%p= link_to 'Back to licence restrictions', licence_restricts_path
-
+= link_to 'Back to licence restrictions', licence_restricts_path, {class: "btn"}

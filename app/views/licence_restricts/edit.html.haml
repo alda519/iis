@@ -2,7 +2,6 @@
 
 =render 'form'
 
-%p= link_to "Destroy", licence_restrict_path, :confirm => 'Are you sure?', :method => :delete
-
-%p= link_to "Back to licence restrictions", licence_restricts_path
-
+%p
+    = link_to "Destroy", licence_restrict_path, :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-danger'
+    = link_to "Back to licence restrictions", licence_restricts_path, :class => 'btn'

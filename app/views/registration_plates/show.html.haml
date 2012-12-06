@@ -11,4 +11,6 @@
 		%td Valid to
 		%td= @plate.valid_to
 
-%p= link_to "Back to Registration Plates", registration_plates_path
+= link_to 'Edit', edit_registration_plate_path(@plate), {class: "btn"}
+
+= link_to "Back to Registration Plates", registration_plates_path, {class: "btn"}

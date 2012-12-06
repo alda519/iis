@@ -14,6 +14,6 @@
         %td Driver
         %td= link_to @bonus_point.driver.fullname, driver_path(@bonus_point.driver)
 
-%p= link_to 'Edit', edit_bonus_point_path(@bonus_point)
+= link_to 'Edit', edit_bonus_point_path(@bonus_point), {class: "btn"}
 
-%p= link_to 'Back to bonus_points', bonus_points_path
+= link_to 'Back to bonus_points', bonus_points_path, {class: "btn"}

@@ -2,8 +2,8 @@
 
 =render 'form'
 
-%p= link_to "Give driving license", new_licence_group_path
-
-%p= link_to "Destroy", driver_path, :confirm => "Are you sure you want to destroy this driver?", :method => :delete
-
-%p= link_to "Back to drivers", drivers_path
+%p
+    = link_to "Add driving license", new_licence_group_path, :class => 'btn'
+%p
+    = link_to "Destroy", driver_path, :confirm => "Are you sure you want to destroy this driver?", :method => :delete, :class => 'btn btn-danger'
+    = link_to "Back to drivers", drivers_path, :class => 'btn'

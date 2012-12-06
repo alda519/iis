@@ -2,6 +2,6 @@
 
 =render 'form'
 
-%p=link_to 'Destroy', registration_plate_path, :confirm => 'Are you sure?', :method => :delete
-
-%p= link_to "Back to Registration Plates", registration_plates_path
+%p
+    = link_to 'Destroy', registration_plate_path, :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-danger'
+    = link_to "Back to Registration Plates", registration_plates_path, :class => 'btn'

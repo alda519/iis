@@ -26,7 +26,7 @@
     -if @current_user.admin? || @current_user == @user
         =f.submit
 
--if @current_user.admin?
-    %p=link_to "Delete this user", user_path, :confirm => "Are you sure?", :method => :delete
-
-%p=link_to "Back to users", users_path
+%p
+    -if @current_user.admin?
+        =link_to "Delete this user", user_path, :confirm => "Are you sure?", :method => :delete, :class => 'btn btn-danger'
+    =link_to "Back to users", users_path, :class => 'btn'
