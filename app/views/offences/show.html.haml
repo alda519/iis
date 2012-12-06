@@ -1,6 +1,6 @@
 %h2 Offence detail
 
-%table{:width => '100%'}
+%table.table{:width => '100%'}
     %tr
         %td Where
         %td= @offence.where
@@ -21,6 +21,6 @@
         %td= link_to @offence.driver.fullname, driver_path(@offence.driver)
 
 
-%p= link_to 'Edit', edit_offence_path(@offence)
+= link_to 'Edit', edit_offence_path(@offence), {class: "btn"}
 
-%p= link_to 'Back to offences', offences_path
+= link_to 'Back to offences', offences_path, {class: "btn"}
