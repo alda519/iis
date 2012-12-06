@@ -54,15 +54,14 @@
                             - if not ["index", "sessions", "users"].include? controller_name
                                 %br
                                 %ul.breadcrumb
-                                    %li
-                                        = link_to "Database", :root
-                                        %span.divider >
-                                        - if action_name == "index"
-                                            %li.active= controller.to_s
-                                        - else
-                                            %li= link_to controller.to_s, :action => :index
-                                            %span.divider >
-                                            %li.active= controller.action_name.capitalize
+                                    %li= link_to "Database", :root
+                                    %span.divider= ">"
+                                    - if action_name == "index"
+                                        %li.active= controller.to_s
+                                    - else
+                                        %li= link_to controller.to_s, :action => :index
+                                        %span.divider= ">"
+                                        %li.active= controller.action_name.capitalize
                         - if notice
                             .alert.alert-success= notice
                         - if alert
