@@ -21,27 +21,34 @@
                                     %button.btn.disabled
                                         Logged in as
                                         %b= @current_user.name
-                                    %button.btn
-                                        =link_to "Log out", log_out_path
-                                    %button.btn
-                                        =link_to "Administration", users_path
+                                    =link_to "Log out", log_out_path, class:"btn"
+                                    =link_to "Administration", users_path, class:"btn"
                             - else
                                 .btn-group{style: "top: -40px;"}   
-                                    %button.btn
-                                        =link_to "Log in", log_in_path
+                                    =link_to "Log in", log_in_path, class:"btn"
                 .row-fluid
                     .span2
                         / MAIN MENU
                         %ul.nav.nav-tabs.nav-stacked
-                            %li
-                                = link_to "Home", index_index_path
+                            %li= link_to "Home", index_index_path
                             %li.divider
                             /%li.nav-header Rozdeleni
-                            %li
-                                = link_to "Drivers", drivers_path
-                            %li
-                                = link_to "Vehicles", vehicles_path
-
+                            -if @current_user
+                                %li=link_to "Drivers", drivers_path
+                                -if @current_user.admin? or @current_user.clerk?
+                                    %li=link_to "Driving licences", licence_groups_path
+                                -if @current_user.admin? or @current_user.policeman? or @current_user.judge?
+                                    %li=link_to "Offences", offences_path
+                                -if @current_user.admin? or @current_user.clerk?
+                                    %li=link_to "Bonus Points", bonus_points_path
+                                -if @current_user.admin? or @current_user.clerk? or @current_user.policeman?
+                                    %li=link_to "Vehicles", vehicles_path
+                                -if @current_user.admin? or @current_user.clerk?
+                                    %li=link_to "Registration Plates", registration_plates_path
+                                -if @current_user.admin? or @current_user.policeman?
+                                    %li=link_to "Vehicle thefts", thefts_path
+                                -if @current_user.admin?
+                                    %li=link_to "Offence Types", offence_types_path
                     .span10
                         .navigation 
                             - if not ["index", "sessions", "users"].include? controller_name
@@ -60,6 +67,4 @@
                             .alert.alert-success= notice
                         - if alert
                             .alert.alert-error= alert
-                        
-                        /.row-fluid
                         = yield
