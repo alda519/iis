@@ -2,8 +2,6 @@
 
 %p=link_to "Change my password", 'users/change_password'
 
-/%p=link_to "Delete my account", user_path(@current_user), :confirm => "Are you sure?", :method => :delete
-
 %p=link_to "Edit my account", edit_user_path(@current_user)
 
 -if @current_user.admin?
