@@ -7,31 +7,59 @@
         = javascript_include_tag "application"
         = csrf_meta_tags
     %body
-        %h1= link_to "Vehicle Database", :root
-        .navigation
-            - if @current_user
-                Logged in as
-                %b= @current_user.name
-                =" | "  
-                =link_to "Log out", log_out_path
-                =" | "
-                =link_to "Administration", users_path
-            - else
-                =link_to "Log in", log_in_path
-            - if not ["index", "sessions", "users"].include? controller_name
-                %br
-                = link_to "Database", :root
-                = ">"
-                - if action_name == "index"
-                    = controller.to_s
-                - else
-                    = link_to controller.to_s, :action => :index
-                    = ">"
-                    = controller.action_name.capitalize
-        - if notice
-            .notice= notice
-        - if alert
-            .alert= alert
-        - if flash[:error]
-            .notice= flash[:error]
-        = yield
+        .container-fluid
+            .row-fluid
+                .span12
+                    .page-header 
+                        %h1 
+                            Vehicle Database
+                            /%small ddd
+                            %img{src: "/car2.png"}
+                        .pull-right
+                            - if @current_user
+                                .btn-group{style: "top: -40px;"}
+                                    %button.btn.disabled
+                                        Logged in as
+                                        %b= @current_user.name
+                                    %button.btn
+                                        =link_to "Log out", log_out_path
+                                    %button.btn
+                                        =link_to "Administration", users_path
+                            - else
+                                .btn-group{style: "top: -40px;"}   
+                                    %button.btn
+                                        =link_to "Log in", log_in_path
+                .row-fluid
+                    .span2
+                        / MAIN MENU
+                        %ul.nav.nav-tabs.nav-stacked
+                            %li
+                                = link_to "Home", index_index_path
+                            %li.divider
+                            /%li.nav-header Rozdeleni
+                            %li
+                                = link_to "Drivers", drivers_path
+                            %li
+                                = link_to "Vehicles", vehicles_path
+
+                    .span10
+                        .navigation 
+                            - if not ["index", "sessions", "users"].include? controller_name
+                                %br
+                                %ul.breadcrumb
+                                    %li
+                                        = link_to "Database", :root
+                                        %span.divider >
+                                        - if action_name == "index"
+                                            %li.active= controller.to_s
+                                        - else
+                                            %li= link_to controller.to_s, :action => :index
+                                            %span.divider >
+                                            %li.active= controller.action_name.capitalize
+                        - if notice
+                            .alert.alert-success= notice
+                        - if alert
+                            .alert.alert-error= alert
+                        
+                        /.row-fluid
+                        = yield

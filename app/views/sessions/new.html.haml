@@ -1,12 +1,27 @@
 %h2 Log in
 
 =form_tag sessions_path do
-    %b Login
-    %br
-    = text_field_tag :login, params[:login]
-    %br
-    %b Password
-    %br
-    = password_field_tag :password
-    %br
-    = submit_tag "Log in"
+	.control-group.error
+		%label.control-label
+			%b Login
+		.controls 
+			= text_field_tag :login, params[:login]
+	.control-group.success
+		%label.control-label
+			%b Password
+		.controls
+			= password_field_tag :password
+	.comtrol-group
+		.controls
+			= submit_tag "Log in", {class: "btn"}
+
+
+/    %b Login
+/    %br
+/    = text_field_tag :login, params[:login]
+/    %br
+/    %b Password
+/    %br
+/    = password_field_tag :password
+/    %br*/
+/			= submit_tag "Log in", {class: "btn"}

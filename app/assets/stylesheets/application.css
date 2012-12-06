@@ -12,6 +12,8 @@
  *= require_tree .
  */
 
+/*
+
 html {
     background-color: #ffffff;
 }
@@ -37,8 +39,6 @@ h1 {
 }
 
 .navigation {
-    /*background-color: #eeeeee;*/
-    /*border-radius: 10px;*/
     border-bottom: 2px solid black;
     padding: 8px;
     margin: 10px 10px 10px 10px;
@@ -74,6 +74,8 @@ h1 {
     color: green;
     padding: 8px;
 }
+
+*/
 
 .field_with_errors label {
     color: red;
