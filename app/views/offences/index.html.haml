@@ -1,5 +1,7 @@
 %h2 Offences
 
+%p= link_to "New Offence", new_offence_path, {class: "btn btn-primary"}
+
 %table.table.table-striped{:width => "100%"}
     %tr.thead 
         %th{:width => "20%"} Date
@@ -15,4 +17,4 @@
             %td= link_to "Detail", d
             %td= link_to "Edit", edit_offence_path(d)
 
-%p= link_to "New Offence", new_offence_path
+
