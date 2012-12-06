@@ -21,14 +21,11 @@
                                     %button.btn.disabled
                                         Logged in as
                                         %b= @current_user.name
-                                    %button.btn
-                                        =link_to "Log out", log_out_path
-                                    %button.btn
-                                        =link_to "Administration", users_path
+                                    =link_to "Log out", log_out_path, class:"btn"
+                                    =link_to "Administration", users_path, class:"btn"
                             - else
                                 .btn-group{style: "top: -40px;"}   
-                                    %button.btn
-                                        =link_to "Log in", log_in_path
+                                    =link_to "Log in", log_in_path, class:"btn"
                 .row-fluid
                     .span2
                         / MAIN MENU
