@@ -1,12 +1,15 @@
 %h2 My account
 
-%p=link_to "Change my password", 'users/change_password'
+%p=link_to "Change my password", 'users/change_password', {class: 'btn'}
 
-%p=link_to "Edit my account", edit_user_path(@current_user)
+%p=link_to "Edit my account", edit_user_path(@current_user), {class: 'btn'}
+
+%br
 
 -if @current_user.admin?
-    %h2 Users
-    %ul
-        -@users.each do |user|
-            %li=link_to user.name, edit_user_path(user)
-    %p=link_to "New User", new_user_path
+	%h2 Users
+	%p=link_to "New User", new_user_path, {class: "btn btn-primary"}
+	%ul
+	-@users.each do |user|
+		%li=link_to user.name, edit_user_path(user)
+

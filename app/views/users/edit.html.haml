@@ -1,32 +1,38 @@
 %h2 User detail
 
 - if @user.errors.any?
-    - for message in @user.errors.full_messages
-        .form_error= message
+    .alert.alert-error
+        - for message in @user.errors.full_messages
+            = message
+            %br
     %br
 
-= form_for @user do |f|
-    .field
-        %div=f.label :name, "Name *"
-        %div=f.text_field :name, {:disabled=>(!@current_user.admin? and @current_user != @user)}
-    .field
-        %div=f.label :login, "Login *"
-        %div=f.text_field :login, {:disabled=>(!@current_user.admin? and @current_user != @user)}
+= form_for @user, :html => {:class => "form-horizontal"} do |f|
+    
+    .control-group
+        .control-label=f.label :name, "Name *"
+        .controls=f.text_field :name, {:disabled=>(!@current_user.admin? and @current_user != @user)}
+    
+    .control-group
+        .control-label=f.label :login, "Login *"
+        .controls=f.text_field :login, {:disabled=>(!@current_user.admin? and @current_user != @user)}
     - if @current_user.admin?
-        .field
-            %div=f.label :password, "Password (do not fill unless you want to change it)"
-            %div=f.password_field :password
-    .field
-        =f.label :roles
-        %ul
-            -Role.all.each do |role|
-                %li
-                    =check_box_tag "user[role_ids][]", role.id, @user.roles.include?(role), :disabled=>!@current_user.admin?
-                    =role.name
+        .control-group
+            .control-label=f.label :password, "Password (do not fill unless you want to change it)"
+            .controls=f.password_field :password
+    .control-group
+        .control-label=f.label :roles
+        .controls    
+            %ul
+                -Role.all.each do |role|
+                    %li
+                        =check_box_tag "user[role_ids][]", role.id, @user.roles.include?(role), :disabled=>!@current_user.admin?
+                        =role.name
     -if @current_user.admin? || @current_user == @user
-        =f.submit
+        .control-group
+            .controls=f.submit :class => "btn btn-primary"
 
 %p
     -if @current_user.admin?
-        =link_to "Delete this user", user_path, :confirm => "Are you sure?", :method => :delete, :class => 'btn btn-danger'
+        =link_to "Delete this user", user_path, :confirm => "Are you sure?", :method => :delete, :class => 'btn btn-danger', :class => 'btn btn-danger'
     =link_to "Back to users", users_path, :class => 'btn'
