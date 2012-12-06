@@ -1,20 +1,22 @@
 - if @theft.errors.any?
-    - for message in @theft.errors.full_messages
-        .form_error= message
+    .alert.alert-error
+        - for message in @theft.errors.full_messages
+            = message
+            %br
     %br
 
-= form_for @theft do |f|
-    .field
-        %div= f.label :when, "When * (YYYY-MM-DD)"
-        %div= f.text_field :when
-    .field
-        %div= f.label :where
-        %div= f.text_field :where
-    .field
-        %div= f.label :vehicle_id, "Vehicle *"
-        %div= f.select :vehicle_id, @vehicles.map { |v| [v.fullname, v.id] }
-    .field
-        %div= f.label :returned
-        %div= f.check_box :returned
-    .field
-        %div= f.submit
+= form_for @theft, :html => {:class => "form-horizontal"} do |f|
+    .control-group
+        .control-label= f.label :when, "When * (YYYY-MM-DD)"
+        .controls= f.text_field :when
+    .control-group
+        .control-label= f.label :where
+        .controls= f.text_field :where
+    .control-group
+        .control-label= f.label :vehicle_id, "Vehicle *"
+        .controls= f.select :vehicle_id, @vehicles.map { |v| [v.fullname, v.id] }
+    .control-group
+        .control-label= f.label :returned
+        .controls= f.check_box :returned
+    .control-group
+        .controls= f.submit :class => "btn btn-primary"

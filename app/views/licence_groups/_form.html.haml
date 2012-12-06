@@ -1,20 +1,22 @@
 - if @licence_group.errors.any?
-    - for message in @licence_group.errors.full_messages
-        .form_error= message
+    .alert.alert-error
+        - for message in @licence_group.errors.full_messages
+            = message
+            %br
     %br
 
-= form_for @licence_group do |f|
-    .field
-        %div= f.label :group, "Group *"
-        %div= f.text_field :group
-    .field
-        %div= f.label :valid_from, "Valid from * (YYYY-MM-DD)"
-        %div= f.text_field :valid_from
-    .field
-        %div= f.label :valid_to
-        %div= f.text_field :valid_to
-    .field
-        %div= f.label :driver_id, "Driver *"
-        %div= f.select :driver_id, @drivers.map { |d| [d.fullname, d.id] }
-    .field
-        %div= f.submit
+= form_for @licence_group, :html => {:class => "form-horizontal"} do |f|
+    .control-group
+        .control-label= f.label :group, "Group *"
+        .controls= f.text_field :group
+    .control-group
+        .control-label= f.label :valid_from, "Valid from * (YYYY-MM-DD)"
+        .controls= f.text_field :valid_from
+    .control-group
+        .control-label= f.label :valid_to
+        .controls= f.text_field :valid_to
+    .control-group
+        .control-label= f.label :driver_id, "Driver *"
+        .controls= f.select :driver_id, @drivers.map { |d| [d.fullname, d.id] }
+    .control-group
+        .controls= f.submit :class => "btn btn-primary"

@@ -1,24 +1,25 @@
 - if @vehicle.errors.any?
-    - for message in @vehicle.errors.full_messages
-        .form_error= message
+    .alert.alert-error
+        - for message in @vehicle.errors.full_messages
+            = message
+            %br
     %br
 
-= form_for @vehicle do |f|
-    %table
-        .field
-            %div= f.label :vin, "VIN code *"
-            %div= f.text_field :vin
-        .field
-            %div= f.label :year, "Year * (YYYY)"
-            %div= f.text_field :year
-        .field
-            %div= f.label :brand, "Brand *"
-            %div= f.text_field :brand
-        .field
-            %div= f.label :model, "Model *"
-            %div= f.text_field :model
-        .field
-            %div= f.label :color
-            %div= f.text_field :color
-        .field
-            %div= f.submit
+= form_for @vehicle, :html => {:class => "form-horizontal"} do |f|
+    .control-group
+        .control-label= f.label :vin, "VIN code *"
+        .controls= f.text_field :vin
+    .control-group
+        .control-label= f.label :year, "Year * (YYYY)"
+        .controls= f.text_field :year
+    .control-group
+        .control-label= f.label :brand, "Brand *"
+        .controls= f.text_field :brand
+    .control-group
+        .control-label= f.label :model, "Model *"
+        .controls= f.text_field :model
+    .control-group
+        .control-label= f.label :color
+        .controls= f.text_field :color
+    .control-group
+        .controls= f.submit :class => "btn btn-primary"

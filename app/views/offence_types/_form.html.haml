@@ -1,20 +1,22 @@
 -if @offence_type.errors.any?
-    -@offence_type.errors.full_messages.each do |msg|
-        .form_error= msg
+    .alert.alert-error
+        -@offence_type.errors.full_messages.each do |msg|
+            = msg
+            %br
     %br
 
-= form_for(@offence_type) do |f|
-    .field
-        %div= f.label :points, "Points *"
-        %div= f.number_field :points
-    .field
-        %div= f.label :fine_from, "Fine from *"
-        %div= f.number_field :fine_from
-    .field
-        %div= f.label :fine_to, "Fine to *"
-        %div= f.number_field :fine_to
-    .field
-        %div= f.label :descr, "Description"
-        %div= f.text_field :descr
-    .field
-        = f.submit
+= form_for@offence_type, :html => {:class => "form-horizontal"} do |f|
+    .control-group
+        .control-label= f.label :points, "Points *"
+        .controls= f.number_field :points
+    .control-group
+        .control-label= f.label :fine_from, "Fine from *"
+        .controls= f.number_field :fine_from
+    .control-group
+        .control-label= f.label :fine_to, "Fine to *"
+        .controls= f.number_field :fine_to
+    .control-group
+        .control-label= f.label :descr, "Description"
+        .controls= f.text_field :descr
+    .control-group
+        .controls= f.submit :class => "btn btn-primary"
