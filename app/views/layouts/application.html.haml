@@ -10,11 +10,17 @@
         .container-fluid
             .row-fluid
                 .span12
-                    .page-header 
-                        %h1 
+                    .page-header
+                        %h1
                             Vehicle Database
                             /%small ddd
-                            %img{src: "/car2.png"}
+                            -if (rand(3) == 1)
+                                %img{src: "/car#{rand(6)+3}.png"}
+                            -else
+                                -if (rand(3) == 0)
+                                    %img{src: "/plane.gif"}         
+                                -else
+                                    %img{src: "/car2.png"}
                         .pull-right
                             - if @current_user
                                 .btn-group{style: "top: -40px;"}
@@ -31,8 +37,8 @@
                         / MAIN MENU
                         %ul.nav.nav-tabs.nav-stacked
                             %li= link_to "Home", index_index_path
-                            %li.divider
-                            /%li.nav-header Rozdeleni
+                            -#%li.divider
+                            -#%li.nav-header Rozdeleni
                             -if @current_user
                                 %li=link_to "Drivers", drivers_path
                                 -if @current_user.admin? or @current_user.clerk?
