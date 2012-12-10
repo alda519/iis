@@ -5,16 +5,16 @@
 
 %table.table.table-striped{:width => "100%"}
     %tr.thead 
-        %th{:width => "20%"} Date
+        %th{:width => "15%"} Date
+        %th{:width => "35%"} Driver
         %th{:width => "30%"} Place
-        %th{:width => "30%"} Driver
         %th{:width => "10%"} Show
         %th{:width => "10%"} Edit
     - @offences.each_with_index do |d, i|
         %tr{ :class => "#{i%2==0? 'even':'odd'}" }
             %td= d.when
-            %td= d.where
             %td= d.driver.fullname
+            %td= d.where
             %td= link_to "Detail", d
             %td
                 -if @current_user.judge?

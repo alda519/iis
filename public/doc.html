@@ -28,39 +28,46 @@
 </dl>
 
 <h2>Uživatelé systému pro testování</h2>
-<p>Uveďte prosím existující zástupce <strong>všech rolí uživatelů</strong>.</p>
+<p>Uveďte prosím existující zástupce <strong>všech rolí uživatelů</strong>.
 <table>
 <tbody><tr><th>Login</th><th>Heslo</th><th>Role</th></tr>
 <tr><td>admin</td><td>admin</td><td>Administrátor</td></tr>
 <tr><td>policeman</td><td>police</td><td>Policista</td></tr>
 <tr><td>clerk</td><td>clerk</td><td>Úředník</td></tr>
-<tr><td>judge</td><td>judge</td><td>Soudce</td></tr>
+<tr><td>judge</td><td>judge</td><td>Soud</td></tr>
 </tbody></table>
 
 <h2>Implementace</h2>
 
 <p>Aplikace je napsána ve frameworku Ruby on Rails, který je založen na návrhovém vzoru model view controller (MVC).
-</p><p>S každou entitou ER diagramu je ...
+<p>S každou entitou ER diagramu je svázán jeden controller, který implementuje všechny akce nad danou entitou.
+Jsou to DriversController z app/controllers/drivers_controller.rb pro správu řidičů,
+VehiclesController z app/controllers/vehicles_controller.rb pro správu vozidel,
+BonusPointsController z app/controllers/bonus_points_controller.rb pro správu bonusových bodů,
+TheftsController z app/controllers/thefts_controller.rb pro správu krádeží vozidel,
+LicenceGroupsController z app/controllers/licence_groups_controller.rb pro správu řidičských oprávnění
+OffencesController z app/controllers/offences_controller.rb pro správu přestupků,
+OffenceTypesController z app/controllers/offence_types_controller.rb pro správu typů přestupků,
+RegistrationPlatesController z app/controllers/registration_plates_controller.rb pro správu vztahu mezi vozidly a řidiči.
 
-
-</p><h3>Popis rolí</h3>
+<h3>Popis rolí</h3>
 
 <p>V systému jsou role úředník, policie, soud, administrátor.
 
-</p><p>Administrátor může dělat vše.
+<p>Administrátor smí dělat vše.
 
-</p><p>Uředníci evidují řidiče, vozidla, řidičská oprávnění.
+<p>Uředníci evidují řidiče, vozidla, řidičská oprávnění.
 Úředníci dále ukládají do systému bonusové body řidičům (ty se 
 odečíatají), které mohou získat např. za obsolvování školení z bezpečné 
 jízdy.
 
-</p><p>Policie eviduje přestupky řidičů a krádeže vozidel.
+<p>Policie eviduje přestupky řidičů a krádeže vozidel.
 Policie také do systému vkládá informaci, zda bylo kradené vozidlo nelezeno a vráceno majiteli.
 
-</p><p>Soud může měnit nebo rušit přestupky řidičů.
+<p>Soud může měnit nebo rušit přestupky řidičů.
 
 
-</p><h2>Instalace</h2>
+<h2>Instalace</h2>
 
 <h3>Softwarové požadavky</h3>
 <ul>
@@ -84,11 +91,6 @@ Policie také do systému vkládá informaci, zda bylo kradené vozidlo nelezeno
 
 <h2>Známé problémy</h2>
 
-<!-- <p>Podle zkona č. 361/2000 sbírky, § 123e má docházet po určité době od spáchání posledniho přestupku řidičem
-    k automatickému odečtání bodů. Toto není implementováno. -->
-
 <p>Žádné problémy nejsou známy.
 
-
-
-</p></body></html>
+</body></html>

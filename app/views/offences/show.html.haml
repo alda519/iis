@@ -2,23 +2,23 @@
 
 %table.table{:width => '100%'}
     %tr
-        %td Where
-        %td= @offence.where
+        %td Driver
+        %td= link_to @offence.driver.fullname, driver_path(@offence.driver)
     %tr
         %td When
         %td= @offence.when
+    %tr
+        %td Type
+        %td= link_to @offence.offence_type.descr, offence_type_path(@offence.offence_type)
+    %tr
+        %td Where
+        %td= @offence.where
     %tr
         %td Fine
         %td= @offence.fine
     %tr
         %td Description
         %td= @offence.descr
-    %tr
-        %td Type
-        %td= link_to @offence.offence_type.descr, offence_type_path(@offence.offence_type)
-    %tr
-        %td Driver
-        %td= link_to @offence.driver.fullname, driver_path(@offence.driver)
 
 
 -if @current_user.judge?

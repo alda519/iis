@@ -7,22 +7,22 @@
 
 = form_for @offence, :html => {:class => "form-horizontal"} do |f|
     .control-group
+        .control-label= f.label :driver, "Driver *"
+        .controls= f.select :driver_id, @drivers.map { |d| [d.fullname, d.id]}
+    .control-group
+        .control-label= f.label :type, "Type *"
+        .controls= f.select :offence_type_id, @offence_types.map { |o| [o.descr + " [" + o.fine_from.to_s + "-" + o.fine_to.to_s + "]", o.id]}
+    .control-group
         .control-label= f.label :when, "When * (YYYY-MM-DD)"
         .controls= f.text_field :when
     .control-group
         .control-label= f.label :where
         .controls= f.text_field :where
     .control-group
-        .control-label= f.label :type, "Type *"
-        .controls= f.select :offence_type_id, @offence_types.map { |o| [o.descr + " [" + o.fine_from.to_s + "-" + o.fine_to.to_s + "]", o.id]}
-    .control-group
         .control-label= f.label :fine, "Fine *"
         .controls= f.text_field :fine
     .control-group
         .control-label= f.label :description
         .controls= f.text_field :descr
-    .control-group
-        .control-label= f.label :driver, "Driver *"
-        .controls= f.select :driver_id, @drivers.map { |d| [d.fullname, d.id]}
     .control-group
         .controls= f.submit :class => "btn btn-primary"
