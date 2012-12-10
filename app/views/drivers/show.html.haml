@@ -20,6 +20,9 @@
         %td Address
         %td= @driver.address
     %tr
+        %td Driving licence
+        %td= (@driver.licence_groups.map { |g| g.group }).join ', '
+    %tr
         %td Points
         %td= @driver.points
 
@@ -28,14 +31,56 @@
 
 = link_to "Back to drivers", drivers_path, {class: "btn"}
 
-%h2= "Offences of #{@driver.fullname}"
-- if @driver.offences
-    %ul
-        - @driver.offences.each do |o|
-            %li= o.offence_type.points
-- else
-    Driver has no offences
+%hr
 
-%h2 Vehicles
-- @driver.vehicles.each do |v|
-    =link_to v.fullname, vehicle_path(v)
+-if @current_user.policeman? or @current_user.judge?
+    %h2= "Driver's offences"
+    - if @driver.offences.size > 0
+        %table.table.table-striped{:width => "100%"}
+            %tr.thead
+                %th{:width => "20%"} Points
+                %th{:width => "20%"} Date
+                %th{:width => "60%"} Offence
+            - @driver.offences.each do |o|
+                %tr
+                    %td= o.offence_type.points
+                    %td= o.when
+                    %td= o.offence_type.descr
+    - else
+        No offences
+
+%hr
+
+-if @current_user.clerk?
+    %h2 Driver's bonus points
+    - if @driver.bonus_points.size > 0
+        %table.table.table-striped{:width => "100%"}
+            %tr.thead
+                %th{:width => "20%"} Points
+                %th{:width => "20%"} Date
+                %th{:width => "60%"} Note
+            - @driver.bonus_points.each do |b|
+                %tr
+                    %td= b.points
+                    %td= b.when
+                    %td= b.note
+    - else
+        No bonus points
+
+%hr
+
+-if @current_user.policeman? or @current_user.clerk?
+    %h2 Vehicles
+    -if @driver.registration_plates.size > 0
+        %table.table.table-striped{:width => "100%"}
+            %tr.thead
+                %th{:width => "25%"} VIN
+                %th{:width => "15%"} Reg. number
+                %th{:width => "60%"} Vehicle
+            - @driver.registration_plates.each do |r|
+                %tr
+                    %td= r.vehicle.vin
+                    %td= r.reg
+                    %td= link_to r.vehicle.fullname, vehicle_path(r.vehicle)
+    -else
+        No vehicles
