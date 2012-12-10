@@ -4,5 +4,5 @@
 
 %p
     -if @current_user.admin?
-        = link_to "Destroy", bonus_point_path, :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-danger'
+        = link_to "Delete points", bonus_point_path, :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-danger'
     = link_to "Back to bonus points", bonus_points_path, :class => 'btn'

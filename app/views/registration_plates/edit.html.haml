@@ -4,5 +4,5 @@
 
 %p
     -if @current_user.admin?
-        = link_to 'Destroy', registration_plate_path, :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-danger'
+        = link_to 'Delete', registration_plate_path, :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-danger'
     = link_to "Back to Registration Plates", registration_plates_path, :class => 'btn'

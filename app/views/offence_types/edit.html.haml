@@ -3,5 +3,5 @@
 = render 'form'
 
 %p
-    = link_to 'Destroy', @offence_type, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger'
+    = link_to 'Delete offence type', @offence_type, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger'
     = link_to 'Back to offence types', offence_types_path, :class => 'btn'

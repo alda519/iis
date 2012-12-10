@@ -45,7 +45,7 @@ class BonusPointsController < ApplicationController
 
     def destroy
         BonusPoint.find(params[:id]).delete
-        redirect_to bonus_points_path, :notice => "Bonus points destroyed"
+        redirect_to bonus_points_path, :notice => "Bonus points deleted"
     end
 
 end

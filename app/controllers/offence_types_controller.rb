@@ -41,7 +41,7 @@ class OffenceTypesController < ApplicationController
     def destroy
         @offence_type = OffenceType.find(params[:id])
         @offence_type.destroy
-        redirect_to offence_types_url, :notice => "Offence type destroyed"
+        redirect_to offence_types_url, :notice => "Offence type deleted"
     end
 
 end

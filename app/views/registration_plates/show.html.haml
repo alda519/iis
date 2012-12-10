@@ -1,15 +1,21 @@
 %h2 Vehicle registration detail
 
 %table.table{:width => '100%'}
-	%tr
-		%td Registration number
-		%td= @plate.reg
-	%tr
-		%td Valid from
-		%td= @plate.valid_from
-	%tr
-		%td Valid to
-		%td= @plate.valid_to
+    %tr
+        %td Registration number
+        %td= @plate.reg
+    %tr
+        %td Driver
+        %td= link_to @plate.driver.fullname, driver_path(@plate.driver)
+    %tr
+        %td Vehicle
+        %td= link_to @plate.vehicle.fullname, vehicle_path(@plate.vehicle)
+    %tr
+        %td Valid from
+        %td= @plate.valid_from
+    %tr
+        %td Valid to
+        %td= @plate.valid_to
 
 -if @current_user.clerk?
     = link_to 'Edit', edit_registration_plate_path(@plate), {class: "btn"}

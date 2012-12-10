@@ -45,7 +45,7 @@ class TheftsController < ApplicationController
 
     def destroy
         Theft.find(params[:id]).delete
-        redirect_to thefts_path, :notice => "Theft destroyed"
+        redirect_to thefts_path, :notice => "Theft deleted"
     end
 
 end

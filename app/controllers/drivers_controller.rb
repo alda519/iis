@@ -41,7 +41,7 @@ class DriversController < ApplicationController
 
     def destroy
         Driver.find(params[:id]).delete
-        redirect_to drivers_path, :notice => "Driver destroyed"
+        redirect_to drivers_path, :notice => "Driver deleted"
     end
 
     def show_offences

@@ -49,7 +49,7 @@ class OffencesController < ApplicationController
 
     def destroy
         Offence.find(params[:id]).delete
-        redirect_to offences_path, :notice => "Offence destroyed"
+        redirect_to offences_path, :notice => "Offence deleted"
     end
 
 end
