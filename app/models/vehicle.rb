@@ -4,7 +4,6 @@ class Vehicle < ActiveRecord::Base
   has_many :registration_plates
   has_many :drivers, :through => :registration_plates
   has_many :thefts
-  has_many :insurances
 
   validates_presence_of :vin, :message => "code can't be blank"
   validates_presence_of :brand

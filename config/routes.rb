@@ -1,11 +1,9 @@
 Iis::Application.routes.draw do
 
   resources :offences
-  resources :licence_restricts
   resources :licence_groups
   resources :bonus_points
   resources :thefts
-  resources :insurances
 
   get "users/change_password"
   post "users/change_password"

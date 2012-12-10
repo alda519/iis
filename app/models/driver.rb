@@ -4,7 +4,6 @@ class Driver < ActiveRecord::Base
   has_many :registration_plates
   has_many :vehicles, :through => :registration_plates
   has_many :offences
-  has_many :licence_restricts
   has_many :licence_groups
   has_many :bonus_points
 
