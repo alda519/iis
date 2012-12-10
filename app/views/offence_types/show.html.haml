@@ -14,6 +14,7 @@
         %td Description
         %td= @offence_type.descr
 
-= link_to 'Edit', edit_offence_type_path(@offence_type), {class: "btn"}
+-if @current_user.admin?
+    = link_to 'Edit', edit_offence_type_path(@offence_type), {class: "btn"}
 
 = link_to 'Back to offence types', offence_types_path, {class: "btn"}

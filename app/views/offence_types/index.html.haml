@@ -1,6 +1,7 @@
 %h2 Offence types
 
-%p= link_to 'New offence type', new_offence_type_path, {class: "btn btn-primary"}
+-if @current_user.admin?
+    %p= link_to 'New offence type', new_offence_type_path, {class: "btn btn-primary"}
 
 %table.table.table-striped{:width => "100%"}
     %tr.thead
@@ -17,4 +18,6 @@
             %td= offence_type.fine_to
             %td= offence_type.descr
             %td= link_to 'Show', offence_type
-            %td= link_to 'Edit', edit_offence_type_path(offence_type)
+            %td
+                -if @current_user.admin?
+                    = link_to 'Edit', edit_offence_type_path(offence_type)

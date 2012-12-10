@@ -1,6 +1,6 @@
 %h2 Offences
 
--if @current_user.clerk?
+-if @current_user.policeman?
     %p= link_to "New offence", new_offence_path, {class: "btn btn-primary"}
 
 %table.table.table-striped{:width => "100%"}

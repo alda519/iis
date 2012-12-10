@@ -2,7 +2,7 @@ class OffenceTypesController < ApplicationController
 
     before_filter :authenticate_user
 
-    before_filter :have_to_be_admin
+    before_filter :have_to_be_admin, :except => [:show, :index]
 
     def index
         @offence_types = OffenceType.all
