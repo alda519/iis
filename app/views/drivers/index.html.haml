@@ -18,5 +18,6 @@
             %td= d.birth
             %td= d.points
             %td= link_to "Detail", d
-            %td= link_to "Edit", edit_driver_path(d)
-
+            %td
+                -if @current_user.clerk?
+                    = link_to "Edit", edit_driver_path(d)

@@ -18,5 +18,6 @@
             %td= v.brand
             %td= v.model
             %td= link_to "Detail", v
-            %td= link_to "Edit", edit_vehicle_path(v)
-
+            %td
+                -if @current_user.clerk?
+                    = link_to "Edit", edit_vehicle_path(v)

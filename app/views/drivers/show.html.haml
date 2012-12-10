@@ -1,4 +1,4 @@
-%h2 Driver Details
+%h2 Driver details
 
 %table.table{:width => '100%'}
     %tr
@@ -23,7 +23,8 @@
         %td Points
         %td= @driver.points
 
-= link_to 'Edit', edit_driver_path(@driver), {class: "btn"}
+-if @current_user.clerk?
+    = link_to 'Edit', edit_driver_path(@driver), {class: "btn"}
 
 = link_to "Back to drivers", drivers_path, {class: "btn"}
 

@@ -16,5 +16,6 @@
             %td= d.group
             %td= d.valid_from
             %td= link_to "Detail", d
-            %td= link_to "Edit", edit_licence_group_path(d)
-
+            %td
+                -if @current_user.clerk?
+                    = link_to "Edit", edit_licence_group_path(d)

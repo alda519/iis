@@ -1,4 +1,4 @@
-%h2 Registration Plate Detail
+%h2 Vehicle registration detail
 
 %table.table{:width => '100%'}
 	%tr
@@ -11,6 +11,7 @@
 		%td Valid to
 		%td= @plate.valid_to
 
-= link_to 'Edit', edit_registration_plate_path(@plate), {class: "btn"}
+-if @current_user.clerk?
+    = link_to 'Edit', edit_registration_plate_path(@plate), {class: "btn"}
 
-= link_to "Back to Registration Plates", registration_plates_path, {class: "btn"}
+= link_to "Back to vehicle registrations", registration_plates_path, {class: "btn"}

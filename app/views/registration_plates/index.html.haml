@@ -20,5 +20,6 @@
             %td= p.driver.fullname
             %td= p.vehicle.fullname
             %td= link_to "Detail", p
-            %td= link_to "Edit", edit_registration_plate_path(p)
-
+            %td
+                -if @current_user.clerk?
+                    = link_to "Edit", edit_registration_plate_path(p)

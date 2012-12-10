@@ -16,5 +16,7 @@
             %td= d.when
             %td= d.points
             %td= link_to "Detail", d
-            %td= link_to "Edit", edit_bonus_point_path(d)
+            %td
+                -if @current_user.clerk?
+                    = link_to "Edit", edit_bonus_point_path(d)
 

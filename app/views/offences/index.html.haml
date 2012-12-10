@@ -16,5 +16,6 @@
             %td= d.where
             %td= d.driver.fullname
             %td= link_to "Detail", d
-            %td= link_to "Edit", edit_offence_path(d)
-
+            %td
+                -if @current_user.judge?
+                    = link_to "Edit", edit_offence_path(d)

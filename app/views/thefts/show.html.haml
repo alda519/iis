@@ -14,6 +14,7 @@
         %td Vehicle
         %td= link_to @theft.vehicle.fullname, theft_path(@theft.vehicle)
 
-= link_to 'Edit', edit_theft_path(@theft), {class: "btn"}
+-if @current_user.policeman?
+    = link_to 'Edit', edit_theft_path(@theft), {class: "btn"}
 
 = link_to 'Back to thefts', thefts_path, {class: "btn"}

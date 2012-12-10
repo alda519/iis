@@ -27,4 +27,6 @@
                         = f.submit "Return", :class => :btn
 
             %td= link_to "Detail", d
-            %td= link_to "Edit", edit_theft_path(d)
+            %td
+                -if @current_user.policeman?
+                    = link_to "Edit", edit_theft_path(d)

@@ -1,4 +1,4 @@
-%h2 Vehicle Details
+%h2 Vehicle details
 
 %table.table{:width => '100%'}
     %tr
@@ -17,6 +17,7 @@
         %td Color
         %td= @vehicle.color
 
-= link_to 'Edit', edit_vehicle_path(@vehicle), {class: "btn"}
+-if @current_user.clerk?
+    = link_to 'Edit', edit_vehicle_path(@vehicle), {class: "btn"}
 
 = link_to "Back to Vehicles", vehicles_path, {class: "btn"}
