@@ -14,13 +14,10 @@
                         %h1
                             Vehicle Database
                             /%small ddd
-                            -if (rand(3) == 1)
+                            -if (rand(5) == 1)
                                 %img{src: "/car#{rand(6)+3}.png"}
                             -else
-                                -if (rand(3) == 0)
-                                    %img{src: "/plane.gif"}         
-                                -else
-                                    %img{src: "/car2.png"}
+                                %img{src: "/car2.png"}
                         .pull-right
                             - if @current_user
                                 .btn-group{style: "top: -40px;"}
