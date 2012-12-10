@@ -1,53 +1,43 @@
-.well{style: "text-align:center"}
-	%img{src: "/potatoes.gif"}
+%h2 Drivers
+=link_to "List drivers", drivers_path, :class => :btn
+- if @current_user.clerk?
+    =link_to "Add new driver", new_driver_path, :class => :btn
 
-/%h2 Offences
-/=link_to "Offences", offences_path
-/=link_to "Add offence", new_offence_path
-/=link_to "Edit offence", edit_offence_path(nil)
-/=link_to "Offence detail", offence_path/
+- if @current_user.policeman? or@current_user.judge? 
+    %h2 Offences
+    =link_to "List Offences", offences_path, :class => :btn
+    - if @current_user.policeman?
+        =link_to "Add new offence", new_offence_path, :class => :btn
 
-/%h2 Driving licences
-/=link_to "", new_licence_group_path
-//=link_to "", edit_licence_group_path
-//=link_to "", licence_group_path/
+- if @current_user.clerk?
+    %h2 Driving licences
+    =link_to "List driving licences", new_licence_group_path, :class => :btn
+    =link_to "Add new driving licence", licence_groups_path, :class => :btn
 
-/%h2 Bonus point
-/=link_to "", bonus_points_path
-/=link_to "", new_bonus_point_path
-//=link_to "", edit_bonus_point_path
-//=link_to "", bonus_point_path/
+- if @current_user.clerk?
+    %h2 Bonus points
+    =link_to "List bonus points", bonus_points_path, :class => :btn
+    =link_to "Add new bonus points", new_bonus_point_path, :class => :btn
 
-/%h2 Vehicle thefts
-/=link_to "", thefts_path
-/=link_to "", new_theft_path
-//=link_to "", edit_theft_path
-//=link_to "", theft_path/
+- if @current_user.policeman?
+    %h2 Stolen vehicles
+    =link_to "List stolen vehicles", thefts_path, :class => :btn
+    =link_to "Add new theft record", new_theft_path, :class => :btn
 
-/%h2 Offence types
-/=link_to "", offence_types_path
-/=link_to "", new_offence_type_path
-//=link_to "", edit_offence_type_path
-//=link_to "", offence_type_path/
+- if @current_user.admin?
+    %h2 Offence types
+    =link_to "List offence types", offence_types_path, :class => :btn
+    =link_to "Add new offence type", new_offence_type_path, :class => :btn
 
-/%h2 Vehicles
-/=link_to "", vehicles_path
-/=link_to "", new_vehicle_path
-//=link_to "", edit_vehicle_path
-//=link_to "", vehicle_path/
+- if @current_user.clerk? or @current_user.policeman?
+    %h2 Vehicles
+    =link_to "List vehicles", vehicles_path, :class => :btn
+    - if @current_user.clerk?
+        =link_to "Add new vehicle", new_vehicle_path, :class => :btn
 
-/%h2 Registration plates
-/=link_to "", registration_plates_path
-/=link_to "", new_registration_plate_path
-//=link_to "", edit_registration_plate_path
-//=link_to "", registration_plate_path/
+- if @current_user.clerk?
+    %h2 Vehicle registration
+    =link_to "List vehicle registrations", registration_plates_path, :class => :btn
+    =link_to "Add new registration", new_registration_plate_path, :class => :btn
 
-/%h2 Drivers
-/=link_to "", drivers_path
-/=link_to "", new_driver_path
-//=link_to "", edit_driver_path
-//=link_to "", driver_path/
-
-/- # asi zrusit, to je zbytecny
-/- #=link_to "lic restr", ...
-/- #=link_to "Insurances", insurances_path
+%p

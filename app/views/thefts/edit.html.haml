@@ -1,8 +1,8 @@
-%h2 Edit Vehicle theft
+%h2 Edit Vehicle theft record
 
 =render 'form'
 
 %p
     -if @current_user.admin?
         = link_to "Delete theft record", theft_path, :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-danger'
-    = link_to "Back to thefts", thefts_path, :class => 'btn'
+    = link_to 'Back to stolen vehicles', thefts_path, {class: "btn"}

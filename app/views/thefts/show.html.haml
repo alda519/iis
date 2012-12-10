@@ -1,8 +1,11 @@
-%h2 Theft detail
+%h2 Stolen vehicle detail
 
 %table.table{:width => '100%'}
     %tr
-        %td When
+        %td Vehicle
+        %td= link_to @theft.vehicle.fullname, theft_path(@theft.vehicle)
+    %tr
+        %td Date
         %td= @theft.when
     %tr
         %td Where
@@ -10,11 +13,9 @@
     %tr
         %td Returned
         %td= @theft.returned
-    %tr
-        %td Vehicle
-        %td= link_to @theft.vehicle.fullname, theft_path(@theft.vehicle)
 
--if @current_user.policeman?
-    = link_to 'Edit', edit_theft_path(@theft), {class: "btn"}
+%p
+    -if @current_user.policeman?
+        = link_to 'Edit', edit_theft_path(@theft), {class: "btn"}
 
-= link_to 'Back to thefts', thefts_path, {class: "btn"}
+    = link_to 'Back to stolen vehicles', thefts_path, {class: "btn"}
