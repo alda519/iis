@@ -2,6 +2,9 @@ class LicenceGroupsController < ApplicationController
 
     before_filter :authenticate_user
 
+    before_filter :have_to_be_clerk
+    before_filter :have_to_be_admin, :only => [:destroy]
+
     def index
         @licence_groups = LicenceGroup.all
     end

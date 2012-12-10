@@ -2,6 +2,9 @@ class OffencesController < ApplicationController
 
     before_filter :authenticate_user
 
+    before_filter :have_to_be_policeman, :only => [:new, :create]
+    before_filter :have_to_be_judge, :only => [:edit, :update, :destroy]
+
     def index
         @offences = Offence.all
     end

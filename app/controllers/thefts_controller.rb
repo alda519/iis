@@ -2,6 +2,9 @@ class TheftsController < ApplicationController
 
     before_filter :authenticate_user
 
+    before_filter :have_to_be_admin, :only => [:destroy]
+    before_filter :have_to_be_policeman
+
     def index
         @thefts = Theft.all
     end

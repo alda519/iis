@@ -2,6 +2,9 @@ class DriversController < ApplicationController
 
     before_filter :authenticate_user
 
+    before_filter :have_to_be_clerk, :only => [:new, :edit, :update, :create]
+    before_filter :have_to_be_admin, :only => [:destroy]
+
     def index
         @drivers = Driver.all
     end
@@ -39,6 +42,13 @@ class DriversController < ApplicationController
     def destroy
         Driver.find(params[:id]).delete
         redirect_to drivers_path, :notice => "Driver destroyed"
+    end
+
+    def show_offences
+        @driver = Driver.find(params[:id])
+        @offences = @driver.offences
+        @drivers = Driver.all
+        render :template => "offences/index"
     end
 
 end

@@ -2,6 +2,8 @@ class OffenceTypesController < ApplicationController
 
     before_filter :authenticate_user
 
+    before_filter :have_to_be_admin
+
     def index
         @offence_types = OffenceType.all
     end

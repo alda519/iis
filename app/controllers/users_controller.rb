@@ -2,6 +2,8 @@ class UsersController < ApplicationController
 
     before_filter :authenticate_user
 
+    before_filter :have_to_be_admin, :only => [:new, :create, :destroy]
+
     def new
         @user = User.new
     end

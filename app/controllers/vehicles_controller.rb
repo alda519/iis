@@ -2,6 +2,9 @@ class VehiclesController < ApplicationController
 
     before_filter :authenticate_user
 
+    before_filter :have_to_be_clerk, :only => [:create, :new, :edit, :update]
+    before_filter :have_to_be_admin, :only => [:destroy]
+
     def index
         @vehicles = Vehicle.all(:order => :year)
     end

@@ -16,4 +16,11 @@ class Driver < ActiveRecord::Base
     name + " " + surname
   end
 
+  def points
+    p = 0
+    offences.each { |o| p += o.offence_type.points }
+    bonus_points.each { |b| p -= b.points }
+    p > 0 ? [p,12].min : 0
+  end
+
 end

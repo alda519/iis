@@ -4,9 +4,10 @@
 
 %table.table.table-striped{:width => "100%"}
     %tr.thead 
-        %th{:width => "30%"} Name
-        %th{:width => "30%"} Surname
+        %th{:width => "25%"} Name
+        %th{:width => "25%"} Surname
         %th{:width => "20%"} Birth
+        %th{:width => "10%"} Points
         %th{:width => "10%"} Show
         %th{:width => "10%"} Edit
     - @drivers.each_with_index do |d, i|
@@ -14,6 +15,7 @@
             %td= d.name
             %td= d.surname
             %td= d.birth
+            %td= d.points
             %td= link_to "Detail", d
             %td= link_to "Edit", edit_driver_path(d)
 

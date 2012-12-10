@@ -21,4 +21,32 @@ class ApplicationController < ActionController::Base
         @current_user ||= User.find_by_id(session[:user_id]) if session[:user_id]
     end
 
+    def have_to_be_admin
+        unless @current_user.admin?
+            flash[:alert] = "You are not authorized to do that"
+            redirect_to root_path
+        end
+    end
+
+    def have_to_be_policeman
+        unless @current_user.policeman? or @current_user.admin?
+            flash[:alert] = "You are not authorized to do that"
+            redirect_to root_path
+        end
+    end
+
+    def have_to_be_judge
+        unless @current_user.judge? or @current_user.admin?
+            flash[:alert] = "You are not authorized to do that"
+            redirect_to :root_path
+        end
+    end
+
+    def have_to_be_clerk
+        unless @current_user.clerk? or @current_user.admin?
+            flash[:alert] = "You are not authorized to do that"
+            redirect_to root_path
+        end
+    end
+
 end

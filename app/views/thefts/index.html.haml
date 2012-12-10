@@ -4,16 +4,26 @@
 
 %table.table.table-striped{:width => "100%"}
     %tr.thead 
-        %th{:width => "55%"} Vehicle
+        %th{:width => "40%"} Vehicle
         %th{:width => "20%"} Date
-        %th{:width => "15%"} Returned
+        %th{:width => "10%"} Returned
+        %th{:width => "10%"} Return
         %th{:width => "10%"} Show
         %th{:width => "10%"} Edit
     - @thefts.each_with_index do |d, i|
         %tr{ :class => "#{i%2==0? 'even':'odd'}" }
             %td= d.vehicle.fullname
             %td= d.when
-            %td= d.returned
+            %td
+                -if d.returned
+                    Yes
+                -else
+                    No
+            %td
+                -if not d.returned and (@current_user.policeman? or @current_user.admin?)
+                    = form_for d, :html => {:style => "position: relative;"} do |f|
+                        = f.hidden_field :returned, :value => true
+                        = f.submit "Return", :class => :btn
+
             %td= link_to "Detail", d
             %td= link_to "Edit", edit_theft_path(d)
-

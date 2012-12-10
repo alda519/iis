@@ -3,5 +3,6 @@
 =render 'form'
 
 %p
-    =link_to 'Delete this vehicle', vehicle_path, :confirm => 'Are you sure you want to destroy this vehicle?', :method => :delete, class: "btn btn-danger"
+    -if @current_user.admin?
+        = link_to 'Delete this vehicle', vehicle_path, :confirm => 'Are you sure you want to destroy this vehicle?', :method => :delete, class: "btn btn-danger"
     = link_to "Back to Vehicles", vehicles_path, class: :btn

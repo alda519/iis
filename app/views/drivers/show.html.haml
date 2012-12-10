@@ -19,7 +19,22 @@
     %tr
         %td Address
         %td= @driver.address
+    %tr
+        %td Points
+        %td= @driver.points
 
 = link_to 'Edit', edit_driver_path(@driver), {class: "btn"}
 
 = link_to "Back to drivers", drivers_path, {class: "btn"}
+
+%h2= "Offences of #{@driver.fullname}"
+- if @driver.offences
+    %ul
+        - @driver.offences.each do |o|
+            %li= o.offence_type.points
+- else
+    Driver has no offences
+
+%h2 Vehicles
+- @driver.vehicles.each do |v|
+    =link_to v.fullname, vehicle_path(v)
