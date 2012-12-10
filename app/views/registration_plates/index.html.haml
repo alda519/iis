@@ -1,12 +1,15 @@
-%h2 Registration Plates
+%h2 Vehicle registrations
 
-%p= link_to "New Registration Plate", new_registration_plate_path, {class: "btn btn-primary"}
+-if @current_user.clerk?
+    %p= link_to "New vehicle registration", new_registration_plate_path, {class: "btn btn-primary"}
 
 %table.table.table-striped{:width => "100%"}
     %tr.thead
         %th{:width => "20%"} Reg no.
-        %th{:width => "30%"} Valid from
-        %th{:width => "30%"} Valid to
+        %th{:width => "15%"} Valid from
+        %th{:width => "15%"} Valid to
+        %th{:width => "20%"} Driver
+        %th{:width => "20%"} Vehicle
         %th{:width => "10%"} Show
         %th{:width => "10%"} Edit
     -@plates.each_with_index do |p, i|
@@ -14,6 +17,8 @@
             %td= p.reg
             %td= p.valid_from
             %td= p.valid_to
+            %td= p.driver.fullname
+            %td= p.vehicle.fullname
             %td= link_to "Detail", p
             %td= link_to "Edit", edit_registration_plate_path(p)
 

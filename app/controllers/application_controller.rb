@@ -38,7 +38,7 @@ class ApplicationController < ActionController::Base
     def have_to_be_judge
         unless @current_user.judge? or @current_user.admin?
             flash[:alert] = "You are not authorized to do that"
-            redirect_to :root_path
+            redirect_to root_path
         end
     end
 

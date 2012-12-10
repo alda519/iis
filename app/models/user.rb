@@ -14,15 +14,15 @@ class User < ActiveRecord::Base
     end
 
     def judge?
-        roles.include?(Role.find_by_name("Judge"))
+        roles.include?(Role.find_by_name("Judge")) or admin?
     end
 
     def policeman?
-        roles.include?(Role.find_by_name("Policeman"))
+        roles.include?(Role.find_by_name("Policeman")) or admin?
     end
 
     def clerk?
-        roles.include?(Role.find_by_name("Clerk"))
+        roles.include?(Role.find_by_name("Clerk")) or admin?
     end
 
 end

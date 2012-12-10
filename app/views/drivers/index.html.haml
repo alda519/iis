@@ -1,6 +1,7 @@
 %h2 Drivers
 
-%p= link_to "New Driver", new_driver_path, {class: "btn btn-primary"}
+-if @current_user.clerk?
+    %p= link_to "New driver", new_driver_path, {class: "btn btn-primary"}
 
 %table.table.table-striped{:width => "100%"}
     %tr.thead 

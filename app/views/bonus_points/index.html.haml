@@ -1,6 +1,7 @@
-%h2 Bonus Points
+%h2 Bonus points
 
-%p= link_to "New Bonus Points", new_bonus_point_path, {class: "btn btn-primary"}
+-if @current_user.clerk?
+    %p= link_to "New bonus points", new_bonus_point_path, {class: "btn btn-primary"}
 
 %table.table.table-striped{:width => "100%"}
     %tr.thead 

@@ -1,6 +1,7 @@
 %h2 Vehicles
 
-%p= link_to "New Vehicle", new_vehicle_path, {class: "btn btn-primary"}
+-if @current_user.clerk?
+    %p= link_to "New vehicle", new_vehicle_path, {class: "btn btn-primary"}
 
 %table.table.table-striped{:width => "100%"}
     %tr.thead

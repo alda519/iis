@@ -1,6 +1,7 @@
-%h2 Thefts
+%h2 Vehicle thefts
 
-%p= link_to "New Theft", new_theft_path, {class: "btn btn-primary"}
+-if @current_user.policeman?
+    %p= link_to "New theft", new_theft_path, {class: "btn btn-primary"}
 
 %table.table.table-striped{:width => "100%"}
     %tr.thead 

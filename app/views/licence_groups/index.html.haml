@@ -1,6 +1,7 @@
-%h2 Licence Groups
+%h2 Driving licences
 
-%p= link_to "New Licence Group", new_licence_group_path, {class: "btn btn-primary"}
+-if @current_user.clerk?
+    %p= link_to "New driving licence group to driver", new_licence_group_path, {class: "btn btn-primary"}
 
 %table.table.table-striped{:width => "100%"}
     %tr.thead 

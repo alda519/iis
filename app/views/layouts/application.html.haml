@@ -41,20 +41,20 @@
                             -#%li.nav-header Rozdeleni
                             -if @current_user
                                 %li=link_to "Drivers", drivers_path
-                                -if @current_user.admin? or @current_user.clerk?
+                                -if @current_user.clerk?
                                     %li=link_to "Driving licences", licence_groups_path
-                                -if @current_user.admin? or @current_user.policeman? or @current_user.judge?
+                                -if @current_user.policeman? or @current_user.judge?
                                     %li=link_to "Offences", offences_path
-                                -if @current_user.admin? or @current_user.clerk?
-                                    %li=link_to "Bonus Points", bonus_points_path
-                                -if @current_user.admin? or @current_user.clerk? or @current_user.policeman?
+                                -if @current_user.clerk?
+                                    %li=link_to "Bonus points", bonus_points_path
+                                -if @current_user.clerk? or @current_user.policeman?
                                     %li=link_to "Vehicles", vehicles_path
-                                -if @current_user.admin? or @current_user.clerk?
-                                    %li=link_to "Registration Plates", registration_plates_path
-                                -if @current_user.admin? or @current_user.policeman?
+                                -if @current_user.clerk?
+                                    %li=link_to "Vehicle registrations", registration_plates_path
+                                -if @current_user.policeman?
                                     %li=link_to "Vehicle thefts", thefts_path
                                 -if @current_user.admin?
-                                    %li=link_to "Offence Types", offence_types_path
+                                    %li=link_to "Offence types", offence_types_path
                     .span10
                         .navigation 
                             - if not ["index", "sessions", "users"].include? controller_name
