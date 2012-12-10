@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html><head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Projekt IIS</title>
+    <style type="text/css">
+    	table { border-collapse: collapse; }
+    	td, th { border: 1px solid black; padding: 0.3em 0.5em; text-align: left; }
+    	dt { font-weight: bold; margin-top: 0.5em; }
+    </style>
+</head>
+<body>
+
+<!-- Zkontrolujte prosím nastavení kódování v hlavičce dokumentu 
+     podle použitého editoru -->
+
+<h1>Evidence řidičů a motorových vozidel</h1> <!-- Nahradte názvem svého zadání -->
+
+<dl>
+	<dt>Autoři</dt>
+	<dd>Cupák Michal
+	    <a href="mailto:xcupak04@stud.fit.vutbr.cz">xcupak04@stud.fit.vutbr.cz</a> - databáze, views
+	</dd>
+	<dd>Dujíček Aleš
+	    <a href="mailto:xdujic01@stud.fit.vutbr.cz">xdujic01@stud.fit.vutbr.cz</a> - models, controllers
+	</dd>
+	<dt>URL aplikace</dt>
+	<dd><a href="http://iis-project.herokuapp.com/log_in">http://iis-project.herokuapp.com</a> (první přístup může chvíli trvat - aplikace bude pravděpodobně uspaná)</dd>
+</dl>
+
+<h2>Uživatelé systému pro testování</h2>
+<p>Uveďte prosím existující zástupce <strong>všech rolí uživatelů</strong>.</p>
+<table>
+<tbody><tr><th>Login</th><th>Heslo</th><th>Role</th></tr>
+<tr><td>admin</td><td>admin</td><td>Administrátor</td></tr>
+<tr><td>policeman</td><td>police</td><td>Policista</td></tr>
+<tr><td>clerk</td><td>clerk</td><td>Úředník</td></tr>
+<tr><td>judge</td><td>judge</td><td>Soudce</td></tr>
+</tbody></table>
+
+<h2>Implementace</h2>
+
+<p>Aplikace je napsána ve frameworku Ruby on Rails, který je založen na návrhovém vzoru model view controller (MVC).
+</p><p>S každou entitou ER diagramu je ...
+
+
+</p><h3>Popis rolí</h3>
+
+<p>V systému jsou role úředník, policie, soud, administrátor.
+
+</p><p>Administrátor může dělat vše.
+
+</p><p>Uředníci evidují řidiče, vozidla, řidičská oprávnění.
+Úředníci dále ukládají do systému bonusové body řidičům (ty se 
+odečíatají), které mohou získat např. za obsolvování školení z bezpečné 
+jízdy.
+
+</p><p>Policie eviduje přestupky řidičů a krádeže vozidel.
+Policie také do systému vkládá informaci, zda bylo kradené vozidlo nelezeno a vráceno majiteli.
+
+</p><p>Soud může měnit nebo rušit přestupky řidičů.
+
+
+</p><h2>Instalace</h2>
+
+<h3>Softwarové požadavky</h3>
+<ul>
+    <li>Ruby 1.9
+    </li><li>Rails 3
+    </li><li>Bundler
+    </li><li>Rake
+    </li><li>postgresql
+</li></ul>
+
+<h3>Instalace</h3>
+<ul>
+<li>rozbalit aplikaci <code>unzip xdujic01.zip / unzip xcupak04.zip</code>
+</li><li>nainstalování potřebných rubygems <code>bundle install</code>
+</li><li>nakonfigurovat databázi v souboru config/database.yml
+</li><li>vytvoření databáze <code>rake db:create</code>
+</li><li>vytvoření tabulek databáze <code>rake db:migrate</code>
+</li><li>naplnění databáze daty <code>rake db:seed</code>
+</li><li>spuštění aplikace <code>rails server</code>
+</li></ul>
+
+<h2>Známé problémy</h2>
+
+<!-- <p>Podle zkona č. 361/2000 sbírky, § 123e má docházet po určité době od spáchání posledniho přestupku řidičem
+    k automatickému odečtání bodů. Toto není implementováno. -->
+
+<p>Žádné problémy nejsou známy.
+
+
+
+</p></body></html>
